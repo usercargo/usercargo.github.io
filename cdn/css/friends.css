@@ -1,0 +1,87 @@
+
+#friend_wrapper{
+    width: 10cm;
+    margin: 0 auto;
+    padding: 10px;
+
+    /*overflow: auto;*/
+
+    /* for Firefox */
+    min-height: 0;
+}
+#invite_telegram{
+    flex: 2;
+    margin: 0 10px;
+}
+#invite_copy{
+    margin: 0 10px;
+}
+.friend_person{
+    display: flex;
+    align-items: center;
+    color:white;
+    /*background: aqua;*/
+    /*width: 400px;*/
+    height: 65px;
+    margin: 0 auto;
+    /*border: 2px solid #a1a1a1;*/
+    /*box-shadow: 0 0 8px white;*/
+    border-radius: 30px 30px 3px 30px;
+    font-size: 1rem;
+    margin: 25px 0;
+    box-shadow: 0 0 13px lightgray;
+    border-radius: 30px 30px 5px 30px;
+    /*border: 2px solid dodgerblue;*/
+
+}
+.friend_person>img{
+    margin: 0 11px;
+    height: 60px;
+    width: 60px;
+    object-fit: contain;
+        border-radius: 100%;
+}
+.friend_person>div{
+    flex: 1;
+    display: flex;
+    /* background: #bddaed; */
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100%;
+    /* margin: 5px 10px; */
+    /* align-items: center; */
+    /*background: #ffffff4f;*/
+    background: #7b63ffa3;
+    padding: 0 15px;
+    border-radius: 4px 28px;
+    /*box-shadow: 0 0 2px white;*/
+    /*border: 2px solid darkgray;*/
+}
+.friend_person>div>div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.friend_person>div small{
+    color:silver;
+    font-size: .7rem;
+}
+.invite_qr_div{
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+}
+.invite_qr_div>canvas{
+    padding: 20px;
+}
+#no_invite_yet img{
+    max-height: 1em;
+}
+
+
+
+
+
+
+
+

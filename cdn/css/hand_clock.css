@@ -1,0 +1,188 @@
+.clock{
+    font-size:200px; /* Default style box */
+    --padding-box:.03em; /* Default padding */
+    --font-num-size:.13em; /* Default padding */
+    --time-hour:12; /* Default hour first placed */
+    --time-minute:15; /* Default minute first placed */
+    --time-second:10; /* Default second first placed */
+    --speed:1s; /* Default speed */
+    /*--lime1:#00ff009d;*/
+    /*--lime2:#00ff0000*/
+    position:relative;
+}
+.clock .clock-center-dot{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    width:.04em;
+    height:.04em;
+    border-radius:50%;
+    border:.01em solid rgb(200,200,200);
+    background-color:inherit;
+}
+
+/* Clock Hand */
+
+.clock .clock-hand{
+    position:absolute;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    /*z-index: 5;*/
+}
+.clock .clock-hand::before{
+    position:absolute;
+    content:'';
+    height:.55em;
+    width:.03em;
+    bottom:calc(50% - .1em);
+    left:calc(50% - .015em);
+    background-color:rgb(200,200,200);
+    border-radius:50% 50% 0 0;
+    box-shadow:0 0 3px rgba(0,0,0,.7);
+}
+.clock .clock-hand.second{
+    --degree:calc(var(--time-second) * 6deg);
+    transform:rotate(var(--degree));
+    animation:hand-move calc(var(--speed) * 60) steps(60,end) 0s infinite;
+}
+.clock-hand.second::before{
+    /*height:.55em;*/
+    height: 54%;
+    width:.015em;
+    bottom:calc(50% - .15em);
+    left:calc(50% - .0075em);
+    background: yellowgreen;
+}
+.clock .clock-hand.minute{
+    --degree:calc(var(--time-minute) * 6deg + ((var(--time-second) / 60) * 6deg));
+    transform:rotate(var(--degree));
+    animation:hand-move calc(var(--speed) * 60 * 60) linear 0s infinite;
+}
+.clock .clock-hand.minute::before{
+    /*height:.4em;*/
+    height:34%;
+    width:.025em;
+    bottom:50%;
+    left:calc(50% - .0125em);
+    background: limegreen;
+}
+.clock .clock-hand.hour{
+    --degree:calc(var(--time-hour) * 30deg + ((var(--time-minute) / 60) * 30deg));
+    transform:rotate(var(--degree));
+    animation:hand-move calc(var(--speed) * 60 * 60 * 12) linear 0s infinite;
+}
+.clock .clock-hand.hour::before{
+    /*  height:.25em;
+      width:.04em;
+      bottom:50%;
+      left:calc(50% - .02em);*/
+    height: 26%;
+    width: .04em;
+    bottom: 50%;
+    left: calc(50% - .02em);
+    background: forestgreen;
+}
+
+/* Clock Number */
+
+.clock .clock-num{
+    box-sizing:border-box;
+    position:absolute;
+    width:100%;
+    height:100%;
+    display:flex;
+    justify-content:center;
+    padding-top:var(--padding-box);
+    transform:rotate(calc(var(--clock-num) * 30deg));
+    font-size: calc(.3em + 16vw);
+    color:rgb(200,200,200);
+}
+.clock .clock-num::before{
+    position:absolute;
+    content: attr(clock-num-text);
+    font-size:var(--font-num-size);
+    /*color:rgb(200,200,200);*/
+    transform:rotate(calc(360deg - (var(--clock-num) * 30deg)));
+}
+.clock_alarm{
+    position: absolute;
+    top: 20%;
+    right: calc(37%);
+    border-radius: 100%;
+    padding: 5px;
+    background: transparent;
+    max-width: 24% !important;
+    max-height: 24% !important;
+    margin: 0 !important;
+    /* box-shadow: 0 0 5px white; */
+    cursor: pointer;
+    border: 2px solid silver;
+}
+.clock_alarm:active{
+    background: green;
+}
+.clock_alarm_actived{
+    /* background: green; */
+    /*box-shadow: 0 0 11px #acff2c;*/
+    box-shadow: 0 0 11px yellow;
+    border: 2px solid lime;
+}
+/* Keyframes */
+@keyframes hand-move {
+    to{
+        transform:rotate(calc(var(--degree) + 360deg));
+    }
+}
+
+/* Style box only */
+
+.loading_clock{
+    /*  Box style only  */
+    width:1em;
+    aspect-ratio:1;
+    border-radius:.2em;
+    /*background-color:rgb(50,50,50);*/
+    /*background-image:linear-gradient(135deg, rgb(200,200,200), rgb(0,0,0));*/
+    /*box-shadow:3px 3px 5px rgba(0,0,0,.8);*/
+    position:relative;
+}
+/* Box style only */
+.loading_clock::before{
+    content:'';
+    position:absolute;
+    top:1px;
+    left:1px;
+    right:1px;
+    bottom:1px;
+    border-radius:.2em;
+    /*background-color:rgb(50,50,50);*/
+    /* border: 1px solid dimgray; */
+    box-shadow: 0 0 5px lightgray;
+}
+.selected_clock:before{
+    animation: blue-ripple 2s linear infinite;
+    border-radius: 100%;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: dimgray;
+}
+@keyframes blue-ripple{
+    100%,0%{
+        /*border:1px solid orange;*/
+        color:orangered;
+        /*background: transparent;*/
+    }
+    50%{
+        /*border:none;*/
+        color:white;
+        text-shadow:0 0 4px gray;
+        /*background: hotpink;*/
+    }
+
+}

@@ -1,0 +1,39 @@
+{
+    "area_name": "Neyshabour",
+    "type": "leaderboard",
+    "list": [
+        {
+            "name": "john smith",
+            "amount": 785456234
+        },
+        {
+            "name": "sara makloum",
+            "amount": 785454234
+        },
+        {
+            "name": "ebrahim 007",
+            "amount": 785446234
+        },
+        {
+            "name": "kadimon_mta",
+            "amount": 785356234
+        },
+        {
+            "name": "mohsen amouli",
+            "amount": 685456234
+        },
+        {
+            "name": "ayat majidi",
+            "amount": 555456234
+        },
+        {
+            "name": "issac janathan",
+            "amount": 415456234
+        },
+        {
+            "name": "karim benzema",
+            "amount": 405456234
+        }
+
+    ]
+}
