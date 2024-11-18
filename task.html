@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>title</title>
+        <link rel="icon" type="image/x-icon" href="cdn/img/favicon.png">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="robots" content="noindex">
+        <link rel="stylesheet" type="text/css" href="cdn/css/geek_toast.css" />
+        <link rel="stylesheet" type="text/css" href="cdn/css/base.css" />
+        <link rel="stylesheet" type="text/css" href="cdn/css/task.css" />
+        <!--<link rel="stylesheet" type="text/css" href="cdn/css/venobox.min.css" />-->
+    </head>
+    <body>
+        <div class="main">
+            <div class="wrapper">
+                <div class="header">
+                    <div><img src="cdn/img/bonus.png"><h3>topnft.top</h3></div>
+                    <div><h3 id='myname'></h3><img src='cdn/img/wheel.png'></div>
+                </div>
+                <div class="middle">
+                    
+                    
+                    
+<!--        <div id="laugh_result_modal" class="hide">
+            <h2>Laughing Fun Result!</h2>
+            <div>
+                <div id="laughing_power">
+                    <p>laughing power : </p>
+                    <div class="volume_bar"></div>
+                </div>
+                <div id="laughing_quality">
+                    <p>laughing quality : </p>
+                    <div class="volume_bar"></div>
+                </div>
+            </div>
+            <div>
+                <img id="play_laugh_bt" src="cdn/img/play.svg">
+            </div>
+            <h1><img><span></span></h1>
+        </div>-->
+                    
+
+                    <div class="img_head">
+                        <video src="cdn/img/task_complete.mp4" autoplay muted loop></video>
+                    </div>
+
+                    <h1 class="title1">Tasks : </h1>
+
+                    <div id="task_wrapper">
+
+
+                        <!--<div>-->
+
+                        <div class="task_div hide" id="location">
+                            <div class="task_name">
+                                <img src="cdn/img/add_location.svg">
+                                <p>location for leaderboard & community</p>
+                            </div>
+
+                            <div class="horizontal_hr"></div>
+
+                            <div class="task_call">
+                                <div class="task_prize inner_flex_row_div"><img src="cdn/img/coin.svg"><p> +20,000,000</p></div>
+                                <div class="vertical_hr"></div>
+                                <div><p class="cta bt1" onclick="taskClick('location')">set</p></div>
+                            </div>
+
+                            <div class="horizontal_hr"></div>
+
+                            <div class="task_detail_div">
+                                <p class="task_details">leaderboard is based on cities, it's fun to see who is leader in your city, maybe you know him/her :D</p>
+                            </div>
+                        </div>
+
+
+                        <div class="task_div hide" id="wallet">
+                            <div class="task_name">
+                                <img src="cdn/img/wallet.svg">
+                                <p>add your wallet address</p>
+                            </div>
+
+                            <div class="horizontal_hr"></div>
+
+                            <div class="task_call">
+                                <div class="task_prize inner_flex_row_div"><img src="cdn/img/coin.svg"><p> +10,000,000</p></div>
+                                <div class="vertical_hr"></div>
+                                <div><p class="cta" id="ton_con_bt"></p></div>
+                            </div>
+
+                            <div class="horizontal_hr"></div>
+
+                            <div class="task_detail_div">
+                                <p class="task_details">wallet address used to transfer prizes and validate your account.TON keeper is best wallet if you have</p>
+                            </div>
+                        </div>
+
+
+                        <div class="task_div" id="laughing">
+                            <div class="task_name">
+                                <img src="cdn/img/laughing.svg">
+                                <p>1 min laughing / hour</p>
+                            </div>
+
+                            <div class="horizontal_hr"></div>
+
+                            <div class="task_call">
+                                <div class="task_prize inner_flex_row_div"><img src="cdn/img/coin.svg"><p> +1,000,000</p></div>
+                                <div class="vertical_hr"></div>
+                                <div class="cta bt1" id="laugh_bt"><img src="cdn/img/record_off.svg"><span></span></div>
+                            </div>
+
+                            <div class="horizontal_hr"></div>
+
+                            <div class="task_detail_div">
+                                <p class="task_details">do you want better thinking power to find better solution and have better lifestyle?<br>first principle of success is laughing and be happy all day long.<br>so 1 minute laughing per hour help you to raise your success goals cause of happiness affect, just try it for a while</p>
+                            </div>
+                        </div>
+
+
+                        <div class="task_div hide" id="num09">
+                            <div class="task_name">
+                                <img src="cdn/img/numbers.svg">
+                                <!--<p>invite 2 friends to get [ 0 - 9 ] chance number range</p>-->
+                                <p>invite 2 friends to get 0,1,2,3,4,5,6,7,8,9 chance number range</p>
+                            </div>
+
+                            <div class="horizontal_hr"></div>
+
+                            <div class="task_call">
+                                <div class="task_prize inner_flex_row_div"><img src="cdn/img/coin.svg"><p> +50,000,000</p></div>
+                                <div class="vertical_hr"></div>
+                                <div><a href="./friends.html"><p class="cta bt1">go to invite page</p></a></div>
+                            </div>
+
+                            <div class="horizontal_hr"></div>
+
+                            <div class="task_detail_div">
+                                <p class="task_details">friends make us help always, your number range is limited to 5 selection numbers (not 10 numbers)<br>if you want to get full range of chance number to choice you just need to invite 2 friends, by your invitation we give them 50,000,000 points to everyone</p>
+                            </div>
+                        </div>
+
+
+                        <div class="task_div hide" id="wheel2x">
+                            <div class="task_name">
+                                <img src="cdn/img/wheel.png">
+                                <p>invite 5 friends to get <b>2X</b> wheel prizes</p>
+                            </div>
+
+                            <div class="horizontal_hr"></div>
+
+                            <div class="task_call">
+                                <div class="task_prize inner_flex_row_div"><img src="cdn/img/coin.svg"><p> +25,000,000</p></div>
+                                <div class="vertical_hr"></div>
+                                <div><a href="./friends.html"><p class="cta bt1">go to invite page</p></a></div>
+                            </div>
+
+                            <div class="horizontal_hr"></div>
+
+                            <div class="task_detail_div">
+                                <p class="task_details">give your friends 25,000,000 XOX as free.<br>if you want to get 2X wheel prizes to have you just need to invite 5 friends, by your invitation we give them 30,000,000 points to everyone</p>
+                            </div>
+                        </div>                        
+
+
+
+<!--                        <div class="task_div">
+                            <div class="task_name">
+                                <img src="cdn/img/youtube.svg">
+                                <p>your daily code from youtube</p>
+                            </div>
+
+                            <div class="horizontal_hr"></div>
+
+                            <div class="task_call">
+                                <div class="task_prize inner_flex_row_div"><img src="cdn/img/coin.svg"><p> +5,000,000</p></div>
+                                <div class="vertical_hr"></div>
+                                <div><p class="cta bt1">3h : 34m later</p></div>
+                            </div>
+
+                            <div class="horizontal_hr"></div>
+
+                            <div class="task_detail_div">
+
+                                <div class="inner_flex_column_div">
+                                    <p class="task_details">every day new code you can to get 1,000,000 and for subscribers 5,000,000</p>
+                                    <div class="text_input_group field">
+
+                                        <input type="text" class="text_input_field" placeholder="" id='daily_code'/>
+                                        <label class="text_input_label">put daily code here...</label>
+                                    </div>
+                                    <p class="bt1">claim</p>
+
+                                </div>
+                            </div>    
+                        </div>                    -->
+
+
+
+                        <div class="task_div" id="youtubecontent">
+                            <div class="task_name">
+                                <img src="cdn/img/youtube2.svg">
+                                <p>make youtube video about XOX</p>
+                            </div>
+
+                            <div class="horizontal_hr"></div>
+
+                            <div class="task_call">
+                                <div class="task_prize inner_flex_row_div"><img src="cdn/img/coin.svg"><p> up to +1,000,000,000</p></div>
+                                <!--<div class="vertical_hr"></div>-->
+                                <!--<p class="cta bt1">3h : 34m later</p>-->
+                            </div>
+
+                            <div class="horizontal_hr"></div>
+
+                            <div class="task_detail_div">
+
+                                <div class="inner_flex_column_div">
+                                    <p class="task_details">anybody speaks by their native language and need to know how to work with XOX, make video content about XOX and share on youtube we give you up to 1,000,000,000 XOX, depends on view, like, comment count<br>but how to demonstrate it's their content it's simple! put your invite link on youtube caption and in this way we authenticate it's your mine and give gift coin to right person<br><b>Note: send link once is enough and don't send it as repeated</b></p>
+                                    <div class="text_input_group field">
+
+                                        <input type="url" class="text_input_field" placeholder="" id='youtube_link'/>
+                                        <label class="text_input_label">put your youtube link here...</label>
+                                    </div>
+                                    <p class="bt1" id="youtube_content_bt">send</p>
+
+                                </div>
+                            </div>    
+                        </div>
+
+
+                        <!--                            <div class="task_div">
+                                                        <div class="task_name">
+                                                            <img src="cdn/img/2048.svg">
+                                                            <p>1 min laughing / hour</p>
+                                                        </div>
+                                                        
+                                                        <div class="horizontal_hr"></div>
+                                                        
+                                                        <div>
+                                                            <p class="task_details">do you want better thinking power to find better solution and have better lifestyle?<br>first principle of success is laughing and be happy all day long.<br>so 1 minute laughing per hour help you to raise your success goals cause of happiness affect, just try it for a while</p>
+                                                        </div>
+                                                        
+                                                        <div class="horizontal_hr"></div>
+                                                        
+                                                        <div class="task_call">
+                                                            <div class="task_prize inner_flex_row_div"><img src="cdn/img/coin.svg"><p> 1,000,000</p></div>
+                                                            <div class="vertical_hr"></div>
+                                                            <p class="cta bt1">32m : 46s left</p>
+                                                        </div>
+                                                        
+                                                    </div>-->
+
+                        <!--</div>-->
+                    </div>
+
+
+                </div>
+
+                <div class="bottom">
+                    <a href="./home.html" target="_self">
+                        <img src="cdn/img/wealth.png" class="big_img">
+                        <span>wheel</span>
+                    </a>
+                    <a href="./numbers.html" target="_self">
+                        <img src="cdn/img/bonus.png">
+                        <span>numbers</span>
+                      </a>
+                    <a href="./friends.html" target="_self">
+                        <img src="cdn/img/wheel.png">
+                        <span>friends</span>
+                      </a>
+                    <a href="./leaderboard.html" target="_self">
+                        <img src="cdn/img/bonus.png">
+                        <span>leaderboard</span>
+                      </a>
+                    <a href="./task.html" target="_self">
+                        <img src="cdn/img/bonus.png">
+                        <span>task</span>
+                      </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal_wrapper">
+            <div>
+                <span></span>
+            </div>
+        </div>
+        
+
+
+
+    </body>
+
+    <!--https://github.com/ton-connect/sdk/tree/main/packages/ui-->
+
+    <script src="cdn/js/donut_chart.js"></script>    
+    <script src="cdn/js/winbox.bundle.min.js"></script>    
+    <script src="cdn/js/audio_recorder.js"></script>
+
+    <script src="cdn/mood/essentia-wasm.web.js"></script>
+    <script src="cdn/mood/essentia.js-core.js"></script>
+    <!--    <script src="cdn/mood/main.js" type="module" async defer></script>-->
+    <script src="cdn/mood/main.js" type="module" async defer></script>
+
+    <script src="cdn/js/tonconnect-sdk.min.js"></script>
+    <script src="cdn/js/tonconnect-ui.min.js"></script>
+
+    <script src="cdn/js/geek.toast.js"></script>
+    <script src="cdn/js/1tool.js"></script>
+    <script src="cdn/js/variable.js"></script>
+    <script src="cdn/js/task.js"></script>
+
+    <!--<script src="cdn/js/task2.js" type="module"></script>-->
+
+</html>
