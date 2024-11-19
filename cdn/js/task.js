@@ -301,21 +301,24 @@ async function connectToWallet() {
 
 let tonConnectBt = $s("#ton_con_bt");
 
-if (tonConnectUI.connected && bigJson.wallet_bounceable_addr) {
-    tonConnectBt.innerHTML = getWalletSmallAddress(bigJson.wallet_bounceable_addr) + "<br>change";
-} else {
-    await tonConnectUI.disconnect().catch(error => {
-        console.error(error);
-    });
-    tonConnectBt.innerHTML = "connect<br>wallet";
-    tonConnectBt.onclick = () => {
-        connectToWallet().catch(error => {
-            console.error("Error connecting to wallet:", error);
+async function setWalletBt() {
+    if (tonConnectUI.connected && bigJson.wallet_bounceable_addr) {
+        tonConnectBt.innerHTML = getWalletSmallAddress(bigJson.wallet_bounceable_addr) + "<br>change";
+    } else {
+        await tonConnectUI.disconnect().catch(error => {
+            console.error(error);
         });
+        tonConnectBt.innerHTML = "connect<br>wallet";
+        tonConnectBt.onclick = () => {
+            connectToWallet().catch(error => {
+                console.error("Error connecting to wallet:", error);
+            });
 
+        }
     }
 }
 ;
+setWalletBt();
 // Call the function
 
 //tonConnectUI.getWallets();
