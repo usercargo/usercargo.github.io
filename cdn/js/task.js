@@ -326,7 +326,7 @@ async function connectToWallet() {
 
 async function disconnectWallet() {
     if (tonConnectUI.connected) {
-        await tonConnectUI.disconnect().catch(error => {
+        await tonConnectUI.disconnect().then(t=>{afterWalletRestor(true);}).catch(error => {
             console.error(error);
         });
     }
