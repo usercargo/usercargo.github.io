@@ -271,8 +271,12 @@ $s("#youtube_content_bt").onclick = () => {
 
 const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
     manifestUrl: 'https://usercargo.github.io/tonconnect-manifest.json',
-    buttonRootId: 'ton_con_bt'
+//    buttonRootId: 'ton_con_bt'
+    buttonRootId: null
 });
+tonConnectUI.uiOptions = {
+    twaReturnUrl: 'https://t.me/calinowenbot'
+};
 //tonConnectUI.uiOptions = {
 //    uiPreferences: {
 //        theme: THEME.DARK
@@ -282,15 +286,26 @@ const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
 async function connectToWallet() {
     const connectedWallet = await tonConnectUI.connectWallet();
     // Do something with connectedWallet if needed
+
+    let hexRawWalletAddress = connectedWallet.account.address, bounceableWalletAddress, bounceableWalletTestAddress;
+    if (hexRawWalletAddress.length > 5 && hexRawWalletAddress.startsWith("0:")) {
+        bounceableWalletAddress = TON_CONNECT_UI.toUserFriendlyAddress(hexRawWalletAddress);
+        bounceableWalletTestAddress = TON_CONNECT_UI.toUserFriendlyAddress(hexRawWalletAddress, true);
+        //*** send to server address 
+    }
+
+    console.log("hexRawWalletAddress:", hexRawWalletAddress, "bounceableWalletAddress:", bounceableWalletAddress, "bounceableWalletTestAddress:", bounceableWalletTestAddress);
     console.log(connectedWallet);
+
 }
 
-// Call the function
-connectToWallet().catch(error => {
-    console.error("Error connecting to wallet:", error);
-});
+$s("#ton_con_bt").onclick = () => {
+    connectToWallet().catch(error => {
+        console.error("Error connecting to wallet:", error);
+    });
 
-tonConnectUI.uiOptions = {
-    twaReturnUrl: 'https://t.me/calinowenbot'
+
 };
+// Call the function
+
 //tonConnectUI.getWallets();
