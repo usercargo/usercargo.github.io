@@ -315,7 +315,7 @@ async function connectToWallet() {
 
         //*** send to server address 
         bigJson.wallet_bounceable_addr = bounceableWalletTestAddress;
-        afterWalletRestor(restored);
+        afterWalletRestor(true);
 
     }
 
