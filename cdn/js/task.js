@@ -281,28 +281,23 @@ tonConnectUI.uiOptions = {
     twaReturnUrl: 'https://t.me/calinowenbot'
 };
 tonConnectUI.connectionRestored.then(restored => {
-//    if (restored) {
-        console.log("setWalletBt >  tonConnectUI.connected:", tonConnectUI.connected);
-        if (restored&&tonConnectUI.connected && bigJson.wallet_bounceable_addr) {
-            tonConnectBt.innerHTML = getWalletSmallAddress(bigJson.wallet_bounceable_addr) + "<br>change";
-        } else {
-            tonConnectBt.innerHTML = "connect<br>wallet";
-        }
-
-
-
-        tonConnectBt.onclick = () => {
-            disconnectWallet();
-            connectToWallet().catch(error => {
-                console.error("Error connecting to wallet:", error);
-            });
-        };
-
-//    } else {
-//        console.log('Connection was not restored.');
-//    }
+    afterWalletRestor(restored);
+    tonConnectBt.onclick = () => {
+        disconnectWallet();
+        connectToWallet().catch(error => {
+            console.error("Error connecting to wallet:", error);
+        });
+    };
 });
+function afterWalletRestor(restored) {
+    console.log("setWalletBt >  tonConnectUI.connected:", tonConnectUI.connected);
+    if (restored && tonConnectUI.connected && bigJson.wallet_bounceable_addr) {
+        tonConnectBt.innerHTML = getWalletSmallAddress(bigJson.wallet_bounceable_addr) + "<br>change";
+    } else {
+        tonConnectBt.innerHTML = "connect<br>wallet";
+    }
 
+}
 //tonConnectUI.uiOptions = {
 //    uiPreferences: {
 //        theme: THEME.DARK
@@ -317,7 +312,11 @@ async function connectToWallet() {
     if (hexRawWalletAddress.length > 5 && hexRawWalletAddress.startsWith("0:")) {
         bounceableWalletAddress = TON_CONNECT_UI.toUserFriendlyAddress(hexRawWalletAddress);
         bounceableWalletTestAddress = TON_CONNECT_UI.toUserFriendlyAddress(hexRawWalletAddress, true);
+
         //*** send to server address 
+        bigJson.wallet_bounceable_addr = bounceableWalletTestAddress;
+        afterWalletRestor(restored);
+
     }
 
     console.log("hexRawWalletAddress:", hexRawWalletAddress, "bounceableWalletAddress:", bounceableWalletAddress, "bounceableWalletTestAddress:", bounceableWalletTestAddress);
