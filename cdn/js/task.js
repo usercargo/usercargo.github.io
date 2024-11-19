@@ -302,6 +302,7 @@ async function connectToWallet() {
 let tonConnectBt = $s("#ton_con_bt");
 
 async function setWalletBt() {
+     console.log("setWalletBt >  tonConnectUI.connected:",tonConnectUI.connected);
     if (tonConnectUI.connected && bigJson.wallet_bounceable_addr) {
         tonConnectBt.innerHTML = getWalletSmallAddress(bigJson.wallet_bounceable_addr) + "<br>change";
     } else {
