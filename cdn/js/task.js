@@ -269,6 +269,9 @@ $s("#youtube_content_bt").onclick = () => {
 
 
 
+let tonConnectBt = $s("#ton_con_bt");
+
+
 const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
     manifestUrl: 'https://usercargo.github.io/tonconnect-manifest.json',
 //    buttonRootId: 'ton_con_bt'
@@ -277,6 +280,28 @@ const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
 tonConnectUI.uiOptions = {
     twaReturnUrl: 'https://t.me/calinowenbot'
 };
+tonConnectUI.connectionRestored.then(restored => {
+    if (restored) {
+        console.log("setWalletBt >  tonConnectUI.connected:", tonConnectUI.connected);
+        if (tonConnectUI.connected && bigJson.wallet_bounceable_addr) {
+            tonConnectBt.innerHTML = getWalletSmallAddress(bigJson.wallet_bounceable_addr) + "<br>change";
+        } else {
+            disconnectWallet();
+            tonConnectBt.innerHTML = "connect<br>wallet";
+            tonConnectBt.onclick = () => {
+                connectToWallet().catch(error => {
+                    console.error("Error connecting to wallet:", error);
+                });
+            };
+        }
+        
+        
+        
+    } else {
+        console.log('Connection was not restored.');
+    }
+});
+
 //tonConnectUI.uiOptions = {
 //    uiPreferences: {
 //        theme: THEME.DARK
@@ -298,24 +323,6 @@ async function connectToWallet() {
     console.log(connectedWallet);
 
 }
-
-let tonConnectBt = $s("#ton_con_bt");
-
-//function setWalletBt() {
-console.log("setWalletBt >  tonConnectUI.connected:", tonConnectUI.connected);
-if (tonConnectUI.connected && bigJson.wallet_bounceable_addr) {
-    tonConnectBt.innerHTML = getWalletSmallAddress(bigJson.wallet_bounceable_addr) + "<br>change";
-} else {
-    disconnectWallet();
-    tonConnectBt.innerHTML = "connect<br>wallet";
-    tonConnectBt.onclick = () => {
-        connectToWallet().catch(error => {
-            console.error("Error connecting to wallet:", error);
-        });
-
-    };
-}
-//}
 
 async function disconnectWallet() {
     await tonConnectUI.disconnect().catch(error => {
