@@ -281,9 +281,9 @@ tonConnectUI.uiOptions = {
     twaReturnUrl: 'https://t.me/calinowenbot'
 };
 tonConnectUI.connectionRestored.then(restored => {
-    if (restored) {
+//    if (restored) {
         console.log("setWalletBt >  tonConnectUI.connected:", tonConnectUI.connected);
-        if (tonConnectUI.connected && bigJson.wallet_bounceable_addr) {
+        if (restored&&tonConnectUI.connected && bigJson.wallet_bounceable_addr) {
             tonConnectBt.innerHTML = getWalletSmallAddress(bigJson.wallet_bounceable_addr) + "<br>change";
         } else {
             tonConnectBt.innerHTML = "connect<br>wallet";
@@ -298,10 +298,9 @@ tonConnectUI.connectionRestored.then(restored => {
             });
         };
 
-
-    } else {
-        console.log('Connection was not restored.');
-    }
+//    } else {
+//        console.log('Connection was not restored.');
+//    }
 });
 
 //tonConnectUI.uiOptions = {
