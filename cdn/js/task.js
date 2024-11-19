@@ -286,7 +286,7 @@ tonConnectUI.uiOptions = {
 async function connectToWallet() {
     const connectedWallet = await tonConnectUI.connectWallet();
     // Do something with connectedWallet if needed
-
+//*** remove testnet address in production 
     let hexRawWalletAddress = connectedWallet.account.address, bounceableWalletAddress, bounceableWalletTestAddress;
     if (hexRawWalletAddress.length > 5 && hexRawWalletAddress.startsWith("0:")) {
         bounceableWalletAddress = TON_CONNECT_UI.toUserFriendlyAddress(hexRawWalletAddress);
@@ -299,13 +299,23 @@ async function connectToWallet() {
 
 }
 
-$s("#ton_con_bt").onclick = () => {
-    connectToWallet().catch(error => {
-        console.error("Error connecting to wallet:", error);
+let tonConnectBt = $s("#ton_con_bt");
+
+if (tonConnectUI.connected && bigJson.wallet_bounceable_addr) {
+    tonConnectBt.innerHTML = getWalletSmallAddress(bigJson.wallet_bounceable_addr) + "<br>change";
+} else {
+    await tonConnectUI.disconnect().catch(error => {
+        console.error(error);
     });
+    tonConnectBt.innerHTML = "connect<br>wallet";
+    tonConnectBt.onclick = () => {
+        connectToWallet().catch(error => {
+            console.error("Error connecting to wallet:", error);
+        });
 
-
-};
+    }
+}
+;
 // Call the function
 
 //tonConnectUI.getWallets();
