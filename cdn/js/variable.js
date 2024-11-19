@@ -2,10 +2,10 @@ var bigJson = {
     my_name: "Kasra Hamediani kia",
     username:"kasr98ra",
     user_tg_id: 4321321321,
+    wallet_bounceable_addr :"0QAAnBlgEneNamuKLyWPY5KD3rJBhwoFxafH3kPIyWRZMouf",
     area: null,//"gfh3dj32hjh4j3", //  null when not setted
     base_wheel_max_value: 50, base_wheel_min_value: 1, wheel_coefficient: 100000, wheel_option_quantity: 16,
     my_invite_gift:50000000,friend_invite_gift:50000000,
-    wallet_addr:null,// "es5...tu9", // null when not setted
     recent_friends: [// [] for no friends
         {name: "mozhgan elmifard", time: 1730506708925},
 //        {name: "mehdi rahmati", time: 1730226708925},
