@@ -49,13 +49,6 @@ function setErrorLocation(msg) {
 
 //import {decodeFile} from "../../cdn/mood/main.js";
 
-const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
-    manifestUrl: 'cdn/tonconnect-manifest.json',
-    buttonRootId: 'ton_con_bt'
-});
-tonConnectUI.getWallets();
-
-
 let laughingLockFlag = false, laughCounter = 1, laughInterval, laughBt = $s("#laugh_bt"), laughText = $s("#laugh_bt span"), laughImg = $s("#laugh_bt img"),
         laughAudio = new Audio();
 let laughBetweenInterval;
@@ -273,3 +266,31 @@ $s("#youtube_content_bt").onclick = () => {
 //    width: "50%",
 //    height: "50%"
 //});
+
+
+
+const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
+    manifestUrl: 'https://usercargo.github.io/tonconnect-manifest.json',
+    buttonRootId: 'ton_con_bt'
+});
+//tonConnectUI.uiOptions = {
+//    uiPreferences: {
+//        theme: THEME.DARK
+//    }
+//};
+
+async function connectToWallet() {
+    const connectedWallet = await tonConnectUI.connectWallet();
+    // Do something with connectedWallet if needed
+    console.log(connectedWallet);
+}
+
+// Call the function
+connectToWallet().catch(error => {
+    console.error("Error connecting to wallet:", error);
+});
+
+tonConnectUI.uiOptions = {
+    twaReturnUrl: 'https://t.me/calinowenbot'
+};
+//tonConnectUI.getWallets();
