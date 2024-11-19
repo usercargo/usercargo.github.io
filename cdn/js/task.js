@@ -286,17 +286,19 @@ tonConnectUI.connectionRestored.then(restored => {
         if (tonConnectUI.connected && bigJson.wallet_bounceable_addr) {
             tonConnectBt.innerHTML = getWalletSmallAddress(bigJson.wallet_bounceable_addr) + "<br>change";
         } else {
-            disconnectWallet();
             tonConnectBt.innerHTML = "connect<br>wallet";
-            tonConnectBt.onclick = () => {
-                connectToWallet().catch(error => {
-                    console.error("Error connecting to wallet:", error);
-                });
-            };
         }
-        
-        
-        
+
+
+
+        tonConnectBt.onclick = () => {
+            disconnectWallet();
+            connectToWallet().catch(error => {
+                console.error("Error connecting to wallet:", error);
+            });
+        };
+
+
     } else {
         console.log('Connection was not restored.');
     }
@@ -325,9 +327,11 @@ async function connectToWallet() {
 }
 
 async function disconnectWallet() {
-    await tonConnectUI.disconnect().catch(error => {
-        console.error(error);
-    });
+    if (tonConnectUI.connected) {
+        await tonConnectUI.disconnect().catch(error => {
+            console.error(error);
+        });
+    }
 }
 
 // Call the function
