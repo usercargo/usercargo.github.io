@@ -348,5 +348,11 @@ const shuffleArray = array => {
     }
 }
 
+function getWalletSmallAddress(addr) {
+    if (addr.length > 5) {
+        return addr.substr(0, 3) + "..." + addr.substr(addr.length - 3, addr.length);
+    }
+}
+
 
 
