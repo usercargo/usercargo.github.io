@@ -1,410 +1,266 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>title</title>
-        <link rel="icon" type="image/x-icon" href="cdn/img/favicon.png">
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="robots" content="noindex">
-        
-        <script src="cdn/js/telegram-web-app.js"></script>
-        <link rel="stylesheet" type="text/css" href="cdn/css/geek_toast.css" />
-        <link rel="stylesheet" type="text/css" href="cdn/css/hand_clock.css" />
-        <link rel="stylesheet" type="text/css" href="cdn/css/base.css" />
-        <link rel="stylesheet" type="text/css" href="cdn/css/tg.css" />
-        
-<!--<link rel="stylesheet" type="text/css" href="cdn/css/clock.css" />-->
-        
-    </head>
-    <body>
-        <div class="main">
 
-            <div id="screen_div" class="hide">
-                <img src="cdn/img/ticket_bg.jpg">
-                <div>
-                    <img id="screen_scroe_img">
+<!-- <head>
+    <title>title</title>
+    <link rel="icon" type="image/x-icon" href="cdn/img/favicon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <script src="cdn/js/telegram-web-app.js"></script>
+    <link rel="stylesheet" type="text/css" href="cdn/css/geek_toast.css" />
+    <link rel="stylesheet" type="text/css" href="cdn/css/hand_clock.css" />
+    <link rel="stylesheet" type="text/css" href="cdn/css/base.css" />
+    <link rel="stylesheet" type="text/css" href="cdn/css/home.css" />
+</head> -->
+
+<body>
+    <div class="main">
+        <div class="wrapper">
+            <div class="middle">
+                <div class="current_ticket">
+                    <!-- <div class="current_ticket_cta">
+                        <p class="bt1" id="x10bt">X10<br>chance</p>
+                    </div> -->
+                    <div class="current_ticket_number_parent" id="x10bt">
+                    </div>
+                    <div class="current_ticket_list_parent">
+                    </div>
+                    <div id="number_guard" class="hide"></div>
+                </div>
+                <canvas id='celebration'></canvas>
+
+                <div id="milestone">
                     <div>
-                        <div class="screen_logo_wrapper">
-                            <div>
-                                <div><small>score : </small><small id="screen_scroe_value"></small></div>
-                                <div><small>by : </small><small id="screen_name"></small></div>
-                                <div><small>at : </small><small id="screen_time"></small></div>
-                                <div><small>total score : </small><small id="screen_total_point"></small></div>
-                            </div>
-                            <div class="screen_logo">
-                                <img src="cdn/img/bonus.png">
-                                <p>topnft.top</p>
-                            </div>
-                        </div>
-                        <div class="small_br"></div>
-                        <div class="screen_text_center"><h2>create , share , vote , win</h2></div>
-                        <div class="screen_text_center"><span>more than <span class="fg_red">$2,500,000<small> (USDT)</small></span></span></div>
-                        <div class="screen_text_center"><span>money to get <span class="fg_purple">luxury</span> experience</span></div>
-                        <div class="screen_text_center"><span>by this invite link you get 10,000,000 points for first</span></div>
-                        <div class="small_br"></div>
-                        <div class="screen_center_elem"><img class="img_middle" src='cdn/img/telegram.svg'><small id="screen_invite_link">t.me/topnftbot/4321232</small></div>
-                        <div class="screen_center_elem"><small>scan this qr code : </small><canvas class="img_middle" id="invite_qr"></canvas></div>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="wrapper">
-                <canvas id='celebration'>Canvas is not supported in your browser.</canvas>
-                <div class="header">
-                    <div><img src="cdn/img/bonus.png"><h3>topnft.top</h3></div>
-                    <div><h3 id='my_name'></h3><img id="my_pic"></div>
-                </div>
-                <div class="top">
-                    <!--https://codepen.io/shshaw/pen/RwJwJJx-->
-                    <!--<div class="box">content inside</div>-->
-
-                    <div class="current_ticket">
-                        <div class="current_ticket_cta">
-                            <p class="bt1">X10<br>chance</p>
-                        </div>
-                        <div class="current_ticket_number_parent">
-                            <span class="current_ticket_num num_1"></span>
-                            <span class="current_ticket_num num_2"></span>
-                            <span class="current_ticket_num num_3"></span>
-                            <span class="current_ticket_num num_4"></span>
-                            <span class="current_ticket_num num_5"></span>
-                            <span class="current_ticket_num num_6"></span>
-                            <span class="current_ticket_num num_7"></span>
-                            <span class="current_ticket_num num_8"></span>                            
-                        </div>
-                        <div class="current_ticket_list_parent">
-                            <!--                            <p class="current_ticket_list num1">23484389</p>
-                                                        <p class="current_ticket_list num2">74383738</p>
-                                                        <p class="current_ticket_list num3">04398473</p>
-                                                        <p class="current_ticket_list num4">53432430</p>
-                                                        <p class="current_ticket_list num5">12944346</p>-->
+                        <div id="milestome_time"></div>
+                        <div id="milestone_progress">
+                            <div></div>
                         </div>
                     </div>
+                    <img src="cdn/img/info3.svg" id="app_info_bt">
                 </div>
 
-                <div class="middle">
+                <div id="amount_parent"><span id="amount_value"></span><img src="cdn/img/point_coin.svg"></div>
 
-
-                    <div class="timer_progress_bar">
-                        <div class="timer_box">
-                            <div class="timer_loading_text">
-                                <div class="timer_wrapper">
-                                    <div><sub class="timer_val day">00</sub><sup>days</sup></div><b>:</b>
-                                    <div><sub class="timer_val hour">00</sub><sup>hours</sup></div><b>:</b>
-                                    <div> <sub class="timer_val min">00</sub><sup>minutes</sup></div><b>:</b>
-                                    <div> <sub class="timer_val sec">00</sub><sup>seconds</sup></div><b>.</b>
-                                    <span class="timer_val tenth"><small>0</small></span>
+                <div class="wheel_rest_wrapper hide" id="wheel_rest_main">
+                    <div class="wheel_rest_watch1">
+                        <div class="simple_flex">
+                            <div id="alarm_clock" class="loading_clock clock">
+                                <div class="clock-hand hour"></div>
+                                <div class="clock-hand minute"></div>
+                                <div class="clock-hand second"></div>
+                                <div class="clock-center-dot"></div>
+                                <div clock-num-text="1" class="clock-num" style="--clock-num:1;"></div>
+                                <div clock-num-text="2" class="clock-num" style="--clock-num:2;"></div>
+                                <div clock-num-text="3" class="clock-num" style="--clock-num:3;"></div>
+                                <div clock-num-text="4" class="clock-num" style="--clock-num:4;"></div>
+                                <div clock-num-text="5" class="clock-num" style="--clock-num:5;"></div>
+                                <div clock-num-text="6" class="clock-num" style="--clock-num:6;"></div>
+                                <div clock-num-text="7" class="clock-num" style="--clock-num:7;"></div>
+                                <div clock-num-text="8" class="clock-num" style="--clock-num:8;"></div>
+                                <div clock-num-text="9" class="clock-num" style="--clock-num:9;"></div>
+                                <div clock-num-text="10" class="clock-num" style="--clock-num:10;"></div>
+                                <div clock-num-text="11" class="clock-num" style="--clock-num:11;"></div>
+                                <div clock-num-text="12" class="clock-num" style="--clock-num:12;"></div>
+                                <img class="clock_alarm" src="cdn/img/notes_plus_off.svg">
+                            </div>
+                            <div class="simple_flex_column">
+                                <div class="simple_flex_child bt1" id="screen_shot">
+                                    <img src="cdn/img/screenshot.svg">
+                                    <span class="text_center"><small>download & share</small><br><b>your
+                                            score</b></span>
                                 </div>
                             </div>
-                            <!--<p class="timer_done_text">Done! 🎉</p>-->
-                            <div class="timer_box_front"></div>
-                            <div class="timer_box_bottom"></div>
                         </div>
-                        <img src="cdn/img/bonus.png">
                     </div>
-
-                    <div id="amount_parent"><span id ="amount_value">1,342,647,948</span><img src="cdn/img/wealth.png"></div>
-
-
-
-
+                    <p class="title1">play as a group and earn the most wheel points together</p>
+                    <img id="group_play_img" src="cdn/img/top.svg">
+                    <small>if your group has a minimum of 7 members, the points are multiplied by 2X.</small>
+                </div>
 
 
-
-                    <!--                    <div class="wheel_rest_wrapper hide1" id="wheel_rest_main">
-                                            <div class="wheel_rest_watch">
-                                                <div class="flex_child">
-                                                    <img src="cdn/img/hourglass.svg">
-                                                    <div>
-                                                        <p>next time of play: <span id="next_wheel_hour"></span></p>
-                                                        <p>time remaining in: <span id="next_wheel_time"></span></p>
-                                                    </div>
-                                                </div>
-                                                <div class="flex_child flex_1 hide1">
-                                                    <label class="switch1">
-                                                        <input id="wheel_rest_alarm_checkbox" type="checkbox">
-                                                        <span class="switch1_slider"></span>
-                                                    </label>
-                                                    <img src="cdn/img/loudspeaker.svg">                                    
-                                                </div>
-                                            </div>
-                                            <div class="wheel_rest_watch">
-                                                <div class="flex_child">
-                                                    <img src="cdn/img/2048.svg">
-                                                    <span class="text_center">play 2048<br>earn 2,048,000</span>
-                                                </div>
-                                                <div class="flex_child flex_1 bt1" id="screen_shot">
-                                                    <img src="cdn/img/screenshot.svg">
-                                                    <span class="text_center"><small>download & share</small><br><b>your score</b></span>
-                                                    <span>you not play yet</span>
-                                                </div>
-                                            </div>
-                                            <p class="title1">play by group and get most more wheel point of group earned*</p>
-                                            <img src="cdn/img/group_wheel_player.png">
-                                            <small>if your group is more than 10 persons then point is multiped by 2X</small>
-                                        </div>-->
+                <div class="wheel_wrapper wheel_rest_wrapper hide" id="wheel_main">
+                    <div class="flex_1">
+                        <h2></h2>
+                    </div>
+                    <div id="wheel_guard">
+                        <div></div>
+                    </div>
+                </div>
 
 
-
-
-                    <div class="wheel_rest_wrapper hide1" id="wheel_rest_main">
-                        <div class="wheel_rest_watch1">
-                            <div class="simple_flex">
-
-                                <div id="alarm_clock" class="loading_clock clock">
-                                    <div class="clock-hand hour"></div>
-                                    <div class="clock-hand minute"></div>
-                                    <div class="clock-hand second"></div>
-                                    <div class="clock-center-dot"></div>
-                                    <div clock-num-text="1" class="clock-num" style="--clock-num:1;"></div>
-                                    <div clock-num-text="2" class="clock-num" style="--clock-num:2;"></div>
-                                    <div clock-num-text="3" class="clock-num" style="--clock-num:3;"></div>
-                                    <div clock-num-text="4" class="clock-num" style="--clock-num:4;"></div>
-                                    <div clock-num-text="5" class="clock-num" style="--clock-num:5;"></div>
-                                    <div clock-num-text="6" class="clock-num" style="--clock-num:6;"></div>
-                                    <div clock-num-text="7" class="clock-num" style="--clock-num:7;"></div>
-                                    <div clock-num-text="8" class="clock-num" style="--clock-num:8;"></div>
-                                    <div clock-num-text="9" class="clock-num" style="--clock-num:9;"></div>
-                                    <div clock-num-text="10" class="clock-num" style="--clock-num:10;"></div>
-                                    <div clock-num-text="11" class="clock-num" style="--clock-num:11;"></div>
-                                    <div clock-num-text="12" class="clock-num" style="--clock-num:12;"></div>
-                                    
-                                    <img class="clock_alarm" src="cdn/img/notes_plus_off.svg">
-                                    
-                                    <!--<p>time remaining in: <span id="next_wheel_time"></span></p>-->
-                                </div>                                
-
-
-                                <div class="simple_flex_column">
-                                    <div class="simple_flex_child bt1" id="screen_shot">
-                                        <img src="cdn/img/screenshot.svg">
-                                        <span class="text_center"><small>download & share</small><br><b>your score</b></span>
-                                    </div>
-                                    <div class="simple_flex_child bt1" id="play_game">
-                                        <img src="cdn/img/2048.svg">
-                                        <span class="text_center">play Gravity<br>for peace of mind</span>
-                                    </div>
-                                </div>
-
-
-                            </div>
-
+                <div class="wheel_rest_wrapper hide" id="wheel_play_main">
+                    <h2>it's wheel time !</h2>
+                    <h2>just 10 minutes for the result</h2>
+                    <div class="wheel_rest_watch">
+                        <div class="flex_child">
+                            <img src="cdn/img/last_time.svg">
+                            <span>time of play is over at <span id="last_time_wheel"></span></span>
                         </div>
-
-                        <p class="title1">play by group and get most more wheel point of group earned*</p>
-                        <img src="cdn/img/group_wheel_player.png">
-                        <small>if your group is more than 10 persons then point is multiped by 2X</small>
                     </div>
-
-
-
-
-
-
-
-
-
-                    <div class="wheel_wrapper wheel_rest_wrapper hide1" id="wheel_main">
-                        <div class="flex_1"><h2></h2></div>
-                        <div id="wheel_guard"><div></div></div>
+                    <div>
+                        <img class="img1" src="cdn/img/wheel_play.png">
                     </div>
-
-
-
-
-
-
-
-                    <div class="wheel_rest_wrapper hide1" id="wheel_play_main">
-                        <h2>it's wheel time !</h2>
-                        <h2>just 10 minuets for result</h2>
-                        <div class="wheel_rest_watch">
-                            <div class="flex_child">
-                                <img src="cdn/img/alarm_clock.svg">
-                                <span>last time is: <span id="last_time_wheel">14:10</span></span>
-                            </div>
+                    <div class="wheel_rest_watch">
+                        <div class="flex_child bt1 bg_green" id="start_wheel_alone">
+                            <img src="cdn/img/single_player.svg">
+                            <span>play alone</span>
                         </div>
+                        <div class="flex_child bt1 bg_red" id="start_wheel_boos">
+                            <img src="cdn/img/head_player.svg">
+                            <span>play as leader</span>
+                        </div>
+                        <div class="flex_child bt1" id="start_wheel_team">
+                            <img src="cdn/img/team_player.svg">
+                            <span>play as team</span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="wheel_rest_wrapper hide1" id="wheel_boos_main">
+                    <div class="flex_child"><img src="cdn/img/watch.svg">
                         <div>
-                            <img class="img1" src = "cdn/img/wheel.png">
-                        </div>
-                        <div class="wheel_rest_watch">
-                            <div class="flex_child bt1" id="start_wheel_alone">
-                                <img src="cdn/img/2048.svg">
-                                <span>start alone</span>
-                            </div>
-                            <div class="flex_child bt1" id="start_wheel_boos">
-                                <img src="cdn/img/bonus.png">
-                                <span>start as boos</span>
-                            </div>
-                            <div class="flex_child bt1" id="start_wheel_team">
-                                <img src="cdn/img/2048.svg">
-                                <span>start as team</span>
-                            </div>
+                            <h2>you are team leader</h2>
+                            <h3>QR code for your team</h3>
                         </div>
                     </div>
-
-
-
-
-
-                    <div class="wheel_rest_wrapper hide1" id="wheel_boos_main">
-                        <div class="flex_child"><img src="cdn/img/watch.svg">
-                            <div>
-                                <h2>you are head of team</h2>
-                                <h3>QR code for your team</h3>
-                            </div>
+                    <canvas id="wheel_boos_qr" class="qrcode"></canvas>
+                    <div class="wheel_rest_watch">
+                        <div class="flex_child bt1" id="start_wheel_after_boos">
+                            <img src="cdn/img/play_wheel.svg">
+                            <span>QR code scan finished<br>play the wheel</span>
                         </div>
-                        <canvas id="wheel_boos_qr" class="qrcode"></canvas>
-                        <div class="wheel_rest_watch" id="start_wheel_after_boos">
-                            <div class="flex_child bt1">
-                                <img src="cdn/img/bonus.png">
-                                <span>QR code scan finished<br>play the wheel</span>
-                            </div>
+                        <div class="flex_child bt1 bg_orange" id="cancel_leader">
+                            <img src="cdn/img/cancel.svg">
+                            <span>cancel</span>
                         </div>
                     </div>
-
-
-
-
-
-                    <div class="wheel_rest_wrapper hide1" id="wheel_team_main">
-                        <div class="flex_child">
-                            <img src="cdn/img/bonus.png">
-                            <div>
-                                <h2>scan boos QR code to play as a team player</h2>
-                            </div>
-                        </div>
-                        <canvas id="wheel_team_qr_scanner" class="qrcode"></canvas>
-                        <div class="wheel_rest_watch">
-                            <div class="flex_child bt_cancel1" id="cancel_team">
-                                <img src="cdn/img/bonus.png">
-                                <span>cancel</span>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="wheel_rest_wrapper hide1" id="wheel_team_reault">
-                        <div class="flex_child">
-                            <img src="cdn/img/bonus.png">
-                            <div>
-                                <h2>return to boos to scan your achievement</h2>
-                            </div>
-                        </div>
-                        <canvas id="wheel_team_qr_result" class="qrcode"></canvas>
-                        <div class="wheel_rest_watch">
-                            <div class="flex_child bt1" id="check_team_result">
-                                <img src="cdn/img/bonus.png">
-                                <span>check</span>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="wheel_rest_wrapper hide1" id="wheel_boos_result">
-                        <div class="flex_child">
-                            <img src="cdn/img/bonus.png">
-                            <div>
-                                <h2>scan team QR code results</h2>
-                            </div>
-                        </div>
-                        <canvas id="wheel_boos_qr_scanner" class="qrcode"></canvas>
-                        <div class="wheel_rest_watch1">
-                            <table class="table1">
-                                <thead>
-                                    <tr>
-                                        <th>name</th>
-                                        <th>score</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="team_result_table">
-                                    <!--                                    <tr>
-                                                                            <td>john scat</td>
-                                                                            <td>1,500,000</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>sara james</td>
-                                                                            <td>500,000</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td class="selected">smith cade</td>
-                                                                            <td class="selected">1,500,000</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>gabriella hort</td>
-                                                                            <td>1,000,000</td>
-                                                                        </tr>-->
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="wheel_rest_watch">
-                            <div class="flex_child bt1" id="boos_qr_scan_finish">
-                                <img src="cdn/img/bonus.png">
-                                <span>send & save your team</span>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
 
 
-                <div class="bottom">
-                    <a href="./home.html" target="_self">
-                        <img src="cdn/img/wealth.png" class="big_img">
-                        <span>wheel</span>
-                    </a>
-                    <a href="./numbers.html" target="_self">
-                        <img src="cdn/img/bonus.png">
-                        <span>numbers</span>
-                      </a>
-                    <a href="./friends.html" target="_self">
-                        <img src="cdn/img/wheel.png">
-                        <span>friends</span>
-                      </a>
-                    <a href="./leaderboard.html" target="_self">
-                        <img src="cdn/img/bonus.png">
-                        <span>leaderboard</span>
-                      </a>
-                    <a href="./task.html" target="_self">
-                        <img src="cdn/img/bonus.png">
-                        <span>task</span>
-                      </a>
+                <div class="wheel_rest_wrapper hide" id="wheel_team_main">
+                    <div class="flex_child">
+                        <img src="cdn/img/scan_qr_code.svg">
+                        <div>
+                            <h2>scan the leader's QR code to play as a team player</h2>
+                        </div>
+                    </div>
+                    <canvas id="wheel_team_qr_scanner" class="qrcode"></canvas>
+                    <div class="wheel_rest_watch">
+                        <div class="flex_child bt1 bg_orange" id="cancel_team">
+                            <img src="cdn/img/cancel.svg">
+                            <span>cancel</span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="wheel_rest_wrapper hide" id="wheel_team_reault">
+                    <div class="flex_child">
+                        <img src="cdn/img/scan_qr_code.svg">
+                        <div>
+                            <h2>return to the leader to scan your achievement</h2>
+                        </div>
+                    </div>
+                    <canvas id="wheel_team_qr_result" class="qrcode"></canvas>
+                    <div class="wheel_rest_watch">
+                        <div class="flex_child bt1" id="check_team_result">
+                            <img src="cdn/img/send.svg">
+                            <span>check</span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="wheel_rest_wrapper hide" id="wheel_boos_result">
+                    <div class="flex_child">
+                        <img class="img_full_height" src="cdn/img/scan_qr_code.svg">
+                        <div>
+                            <h2>scan the team's QR code for results</h2>
+                        </div>
+                    </div>
+                    <canvas id="wheel_boos_qr_scanner" class="qrcode"></canvas>
+                    <div class="wheel_rest_watch1">
+                        <table class="table1">
+                            <thead>
+                                <tr>
+                                    <th>name</th>
+                                    <th>score</th>
+                                </tr>
+                            </thead>
+                            <tbody id="team_result_table">
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="wheel_rest_watch">
+                        <div class="flex_child bt1 bg_green" id="boos_qr_scan_finish">
+                            <img src="cdn/img/send.svg">
+                            <span>send & save your team</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="app_info_div" class="hide">
+
+                    <h2 class="title1">Happy</h2>
+                    <p>Happy is a Telegram mini app designed to make people happy, have a lot of fun, and offer a
+                        million-dollar chance for success and a luxury life experience.</p>
+                    <p>Happy to make happy. To achieve success, you need to be happy. Truly happy people have better
+                        ideas and improved thinking power. Laughing for one minute per hour (even if it's fake) boosts
+                        important hormones that enhance your performance all day long. This technique is what you need
+                        to achieve success at the first.</p>
+                    <p>Happy for success. We all have art and talent in a specific field: sport, food, painting,
+                        handcrafts, poetry, etc. Just show your honor with an assigned 8-digit chance number to others
+                        and ask them to vote for it on voting day. Then you can become famous and successful. Today,
+                        even using AI is an art. </p>
+                    <p>Happy for network. There is a relationship between successful people and their network (friends).
+                        Through Happy social tasks, you can gain more and more friends. Every new friend provides you
+                        with new ideas and enhances your ability to work better. Expand your network and witness the
+                        power of networking.</p>
+                    <p>Happy for million-dolar prize.<br>
+                        All winners of the 8-digit code who receive the most votes will win $1,000,000.<br>
+                        Second place wins $500,000, which will be awarded to all winners with the fifth and sixth most
+                        voted digits.<br>
+                        Third place winners will receive $500,000, awarded to those with the third and fourth most voted
+                        digits.<br>
+                        And finally, fourth place winners will win $500,000 with just the 2 most voted numbers in the
+                        first and second digits, divided among them all.</p>
+                    <p>Happy Surprise: Earn points by laughing and completing other tasks. Every 1 billion points can
+                        void a digit of your 8-digit number, giving you 10 times more chance power.</p>
+                    <small>*prizes divided between winners in any places<br>
+                        *The voided digit, affected by your points, applies to any winning places.<br>
+                        *Voting takes place on Telegram, involving you and your voters.<br>
+                        *Anybody can vote for you<br>
+                        *Every place will vote separately.<br>
+                        *We plan to repeat it every week if users are ready.<br>
+                        *We can have a weekly period to launch voting; it depends on network power. If you want to help
+                        us, just refer Happy to your friends and others, and make them happy too.<br>
+                        *If you want to make more people happy, just refer them to play with Happy.</small>
+                    <h3 class="text_center">$1,000,000 is enough for a luxury experience and business growth.<br>Happy
+                        is your chance to have it.
+                    </h3>
+                    <br>
+                    <br>
+                    <p class="bt1" id="app_info_div_close"><img src="cdn/img/happy_logo2.png"> Got it!</p>
                 </div>
             </div>
+
         </div>
-
-
-
-
-        <script src="cdn/js/1tool.js"></script>
-        <script src="cdn/js/variable.js"></script>
-        <script src="cdn/js/fireworks.js"></script>
-        <script src="cdn/js/geek.toast.js"></script>
-        <script src="cdn/js/gibberish-aes-1.0.0.min.js"></script>
-        <script src="cdn/js/html2canvas.min.js"></script>
-        <script src="cdn/js/constants.js"></script>
-        <script src="cdn/js/props.js"></script>
-        <script src="cdn/js/spin-wheel-esm.js"></script>
-
-        <script src="cdn/js/util.js"></script>
-        <script src="cdn/js/qrious.min.js"></script>
-        <!--<script src="cdn/js/jsencrypt.min.js"></script>-->
-        <script src="cdn/js/html5-qrcode.min.js"></script>
-        <script src="cdn/js/jsQR.js"></script>
-        <script src="cdn/js/winbox.bundle.min.js"></script>
-        <script src="cdn/js/tg.js"></script>
-        <script src ="cdn/js/after_load.js"></script>
-
-        <!--<script src="cdn/js/constants.js"></script>-->
-        <!--<script src="cdn/js/props.js"></script>-->
-
-        <!--<script type="module" src="cdn/js/tg.js"></script>-->
-
-
-    </body>
-
-
+    </div>
+    <!-- <script src="cdn/js/1tool.js"></script>
+    <script src="cdn/js/variable.js"></script>
+    <script src="cdn/js/fireworks.js"></script>
+    <script src="cdn/js/geek.toast.js"></script>
+    <script src="cdn/js/html2canvas.min.js"></script>
+    <script src="cdn/js/constants.js"></script>
+    <script src="cdn/js/spin-wheel-esm.js"></script>
+    <script src="cdn/js/util.js"></script>
+    <script src="cdn/js/qrious.min.js"></script>
+    <script src="cdn/js/html5-qrcode.min.js"></script>
+    <script src="cdn/js/jsQR.js"></script>
+    <script src="cdn/js/winbox.bundle.min.js"></script>
+    <script src="cdn/js/home.js"></script> -->
+</body>
 
 </html>
-

@@ -1,341 +1,301 @@
 <!DOCTYPE html>
 <html>
-    <head>
+<!-- <head>
         <title>title</title>
         <link rel="icon" type="image/x-icon" href="cdn/img/favicon.png">
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="robots" content="noindex">
         <link rel="stylesheet" type="text/css" href="cdn/css/base.css" />
+        <link rel="stylesheet" type="text/css" href="cdn/css/geek_toast.css" />
         <link rel="stylesheet" type="text/css" href="cdn/css/numbers.css" />
-    </head>
-    <body>
-        <div class="main">
-            <div class="wrapper">
-                <div class="header">
-                    <div><img src="cdn/img/bonus.png"><h3>topnft.top</h3></div>
-                    <div><h3 id='myname'></h3><img src='cdn/img/wheel.png'></div>
+    </head> -->
+
+<body>
+    <div class="main">
+        <div class="wrapper">
+            <div class="middle">
+                <div class="img_head">
+                    <img src="cdn/img/ticket4.svg">
                 </div>
-                <div class="middle">
-
-                    <div class="img_head">
-                        <video src="cdn/img/task_complete.mp4" autoplay muted loop></video>
-                    </div>
-
-
-
-                    <h2 class="title2 hide1">$<span id="total_prize_title"></span> prizes for you!</h2>
-
-
-
-
-                    <br>
-                    <p class="title1">prizes by voting :</p>
-                    <br>
-                    <div class="prize_list hide1">
+                <h2 class="title2 hide1">$<span id="total_prize_title"></span> prizes for you!</h2>
+                <br>
+                <p class="title1">prizes by voting :</p>
+                <br>
+                <!--                    <div class="prize_list hide1">
+                                            <span class="prize_item_1"><span class="prize_num">✅✅✅✅✅✅✅✅<br>for 8 numbers most voted winners</span></span>
+                                            <span class="grid_v prize_item_0"><img src="cdn/img/1rd_medal.svg"><span> $ 1,000,000</span></span>
+                                            <span class="prize_item_3"><span class="prize_num">✅✅✅✅✅✅✅<br>for 7 numbers most voted winners</span></span>
+                                            <span class="grid_v prize_item_2"><img src="cdn/img/2rd_medal.svg"><span> $ 500,000</span></span>
+                                            <span class="prize_item_5"><span class="prize_num">✅✅✅✅✅✅<br>for 6 numbers most voted winners</span></span>
+                                            <span class="grid_v prize_item_4"><img src="cdn/img/3rd_medal.svg"><span> $ 250,000</span></span>
+                                            <span class="prize_item_7"><span class="prize_num">✅✅✅✅✅<br>for 5 numbers most voted winners</span></span>
+                                            <span class="grid_v prize_item_6"><img src="cdn/img/4rd_medal.svg"><span> $ 250,000</span></span>
+                                            <span class="prize_item_9"><span class="prize_num">✅✅✅✅<br>for 4 numbers most voted winners</span></span>
+                                            <span class="grid_v prize_item_8"><img src="cdn/img/5rd_medal.svg"><span> $ 250,000</span></span>
+                                            <span class="prize_item_11"><span class="prize_num">✅✅✅<br>for 3 numbers most voted winners</span></span>
+                                            <span class="grid_v prize_item_10"><img src="cdn/img/6rd_medal.svg"><span> $ 250,000</span></span>
+                                            <span class="prize_item_13"><span class="prize_num">✅✅<br>for 2 numbers most voted winners</span></span>
+                                            <span class="grid_v prize_item_12"><img src="cdn/img/7rd_medal.svg"><span> $ 250,000</span></span>
+                                        </div>-->
+                <!-- <div class="prize_list hide1">
                         <span class="prize_item_1"><span class="prize_num">✅✅✅✅✅✅✅✅<br>for 8 numbers most voted winners</span></span>
                         <span class="grid_v prize_item_0"><img src="cdn/img/1rd_medal.svg"><span> $ 1,000,000</span></span>
-                        <span class="prize_item_3"><span class="prize_num">✅✅✅✅✅✅✅<br>for 7 numbers most voted winners</span></span>
+                        <span class="prize_item_3"><span class="prize_num">✅✅✅✅✅✅<br>for 6 numbers most voted winners</span></span>
                         <span class="grid_v prize_item_2"><img src="cdn/img/2rd_medal.svg"><span> $ 500,000</span></span>
-                        <span class="prize_item_5"><span class="prize_num">✅✅✅✅✅✅<br>for 6 numbers most voted winners</span></span>
-                        <span class="grid_v prize_item_4"><img src="cdn/img/3rd_medal.svg"><span> $ 250,000</span></span>
-                        <span class="prize_item_7"><span class="prize_num">✅✅✅✅✅<br>for 5 numbers most voted winners</span></span>
-                        <span class="grid_v prize_item_6"><img src="cdn/img/4rd_medal.svg"><span> $ 250,000</span></span>
-                        <span class="prize_item_9"><span class="prize_num">✅✅✅✅<br>for 4 numbers most voted winners</span></span>
-                        <span class="grid_v prize_item_8"><img src="cdn/img/5rd_medal.svg"><span> $ 250,000</span></span>
-                        <span class="prize_item_11"><span class="prize_num">✅✅✅<br>for 3 numbers most voted winners</span></span>
-                        <span class="grid_v prize_item_10"><img src="cdn/img/6rd_medal.svg"><span> $ 250,000</span></span>
-                        <span class="prize_item_13"><span class="prize_num">✅✅<br>for 2 numbers most voted winners</span></span>
-                        <span class="grid_v prize_item_12"><img src="cdn/img/7rd_medal.svg"><span> $ 250,000</span></span>
+                        <span class="prize_item_5"><span class="prize_num">✅✅✅✅<br>for 4 numbers most voted winners</span></span>
+                        <span class="grid_v prize_item_4"><img src="cdn/img/3rd_medal.svg"><span> $ 500,000</span></span>
+                        <span class="prize_item_7"><span class="prize_num">✅✅<br>for 2 numbers most voted winners</span></span>
+                        <span class="grid_v prize_item_6"><img src="cdn/img/4rd_medal.svg"><span> $ 500,000</span></span>
+                    </div> -->
+                <div class="prize_list hide1">
+                    <span class="prize_item_1"><span class="prize_num">
+                            <div class="mark"><img src="cdn/img/check_square.svg"><img
+                                    src="cdn/img/check_square.svg"><img src="cdn/img/check_square.svg"><img
+                                    src="cdn/img/check_square.svg"><img src="cdn/img/check_square.svg"><img
+                                    src="cdn/img/check_square.svg"><img src="cdn/img/check_square.svg"><img
+                                    src="cdn/img/check_square.svg"></div>for all 8 digits
+                        </span></span>
+                    <span class="grid_v prize_item_0"><img src="cdn/img/1rd_medal.svg"><span> $ 1,000,000</span></span>
+                    <span class="prize_item_3"><span class="prize_num">
+                            <div class="mark"><img src="cdn/img/check_square.svg"><img
+                                    src="cdn/img/check_square.svg"><img src="cdn/img/uncheck_square.svg"><img
+                                    src="cdn/img/uncheck_square.svg"><img src="cdn/img/uncheck_square.svg"><img
+                                    src="cdn/img/uncheck_square.svg"><img src="cdn/img/uncheck_square.svg"><img
+                                    src="cdn/img/uncheck_square.svg"></div>for first 2 digits
+                        </span></span>
+                    <span class="grid_v prize_item_2"><img src="cdn/img/2rd_medal.svg"><span> $ 500,000</span></span>
+                    <span class="prize_item_5"><span class="prize_num">
+                            <div class="mark"><img src="cdn/img/uncheck_square.svg"><img
+                                    src="cdn/img/uncheck_square.svg"><img src="cdn/img/check_square.svg"><img
+                                    src="cdn/img/check_square.svg"><img src="cdn/img/uncheck_square.svg"><img
+                                    src="cdn/img/uncheck_square.svg"><img src="cdn/img/uncheck_square.svg"><img
+                                    src="cdn/img/uncheck_square.svg"></div>for second 2 digits
+                        </span></span>
+                    <span class="grid_v prize_item_4"><img src="cdn/img/3rd_medal.svg"><span> $ 500,000</span></span>
+                    <span class="prize_item_7"><span class="prize_num">
+                            <div class="mark"><img src="cdn/img/uncheck_square.svg"><img
+                                    src="cdn/img/uncheck_square.svg"><img src="cdn/img/uncheck_square.svg"><img
+                                    src="cdn/img/uncheck_square.svg"><img src="cdn/img/check_square.svg"><img
+                                    src="cdn/img/check_square.svg"><img src="cdn/img/uncheck_square.svg"><img
+                                    src="cdn/img/uncheck_square.svg"></div>for third 2 digits
+                        </span></span>
+                    <span class="grid_v prize_item_6"><img src="cdn/img/4rd_medal.svg"><span> $ 500,000</span></span>
+
+                </div>
+                <br>
+                <div>
+                    <p class="title1">this chance is for you</p>
+                    <p class="title1">got prizes in 3 simple levels :</p>
+                    <div class="text_shadow_anim_container">
+                        <div class="text_shadow_anim_text1"><img><span></span></div>
+                        <div class="text_shadow_anim_text2"><img><span></span></div>
                     </div>
-
-
-
-                    <div>
-                        <br>
-
-                        <!--                        <p class="title1">turn on your inside power</p>
-                                                <p class="title1">anybody has an art of honor</p>-->
-                        <p class="title1">this chance is for you</p>
-                        <p class="title1">got prizes in 4 simple levels :</p>
-
-                        <div class="text_shadow_anim_container">
-                            <div class="text_shadow_anim_text1"><img><span></span></div>
-                            <div class="text_shadow_anim_text2"><img><span></span></div>
-                        </div>
-
-                        <svg class="text_shadow_anim_filters">
+                    <svg class="text_shadow_anim_filters">
                         <defs>
-                        <filter class="text_shadow_anim_threshold">
-                            <feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 255 -140" />
-                        </filter>
+                            <filter class="text_shadow_anim_threshold">
+                                <feColorMatrix in="SourceGraphic" type="matrix"
+                                    values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 255 -140" />
+                            </filter>
                         </defs>
-                        </svg>
-                    </div>
-
-                    <br>
-
-                    <!--                                            <div class="prize_type_value reveal_anim_main"><b>$1,000,000</b></div> 
-                                                                <div class="prize_type_text reveal_anim_main"> 
-                                                                    <span>for 8 numbers most voted winners</span>
-                                                                </div>
-                                                                <p><b>$1,000,000</b> for 8 numbers most voted winners</p>
-                                                                <p><b>$500,000</b> for 7 numbers most voted winners</p>
-                                                                <p><b>$250,000</b> for 6 numbers most voted winners</p>
-                                                                <p><b>$250,000</b> for 5 numbers less voted losers</p>
-                                                                <p><b>$250,000</b> for 4 numbers less voted losers</p>
-                                                                <p><b>$250,000</b> for 3 numbers less voted losers</p>
-                                                                <p><b>$250,000</b> for 2 numbers less voted losers</p>-->
-
-
-                    <div id="without_choosed_number_statistics" class="hide">
-                        <p class="title1">winner numbers statistics:</p>
-                        <div>
-                            <div class="winner_statistics">
-                                <span class="winner_item_0 num0"><span class="winner_num"></span><span class="winner_qty"></span></span>
-                                <span class="grid_v winner_item_1"><img src="cdn/img/1rd_medal.svg"><span>$ 1,000,000</span></span>
-                                <span class="winner_item_2 num1"><span class="winner_num"></span><span class="winner_qty"></span></span>
-                                <span class="grid_v winner_item_3"><img src="cdn/img/2rd_medal.svg"><span>$ 500,000</span></span>
-                                <span class="winner_item_4 num2"><span class="winner_num"></span><span class="winner_qty"></span></span>
-                                <span class="grid_v winner_item_5"><img src="cdn/img/3rd_medal.svg"><span>$ 250,000</span></span>
-                                <span class="winner_item_6 num3"><span class="winner_num"></span><span class="winner_qty"></span></span>
-                                <span class="grid_v winner_item_7"><img src="cdn/img/4rd_medal.svg"><span>$ 250,000</span></span>
-                                <span class="winner_item_8 num4"><span class="winner_num"></span><span class="winner_qty"></span></span>
-                                <span class="grid_v winner_item_9"><img src="cdn/img/5rd_medal.svg"><span>$ 250,000</span></span>
-                                <span class="winner_item_10 num5"><span class="winner_num"></span><span class="winner_qty"></span></span>
-                                <span class="grid_v winner_item_11"><img src="cdn/img/6rd_medal.svg"><span>$ 250,000</span></span>
-                                <span class="winner_item_12 num6"><span class="winner_num"></span><span class="winner_qty"></span></span>
-                                <span class="grid_v winner_item_13"><img src="cdn/img/7rd_medal.svg"><span>$ 250,000</span></span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <br>
-
-                    <div id="with_choosed_number_statistics" class="hide">
-                        <div id="vote_result">
-                            <div>
-                                <p class="title1">your previous numbers and situation : </p>
-                                <br>
-                                <div class="voted_num">
-                                    <div>
-                                        <p>most voted numbers : </p>
-                                        <div><img src="cdn/img/1rd_medal.svg"> <p class="most_voted_number num0" data-num="0"></p></div>
-                                        <div><img src="cdn/img/2rd_medal.svg"> <p class="most_voted_number num1" data-num="1"></p></div>
-                                        <div><img src="cdn/img/3rd_medal.svg"> <p class="most_voted_number num2" data-num="2"></p></div>
-                                        <div><img src="cdn/img/4rd_medal.svg"> <p class="most_voted_number num3" data-num="3"></p></div>
-                                        <div><img src="cdn/img/5rd_medal.svg"> <p class="most_voted_number num4" data-num="4"></p></div>
-                                        <div><img src="cdn/img/6rd_medal.svg"> <p class="most_voted_number num5" data-num="5"></p></div>
-                                        <div><img src="cdn/img/7rd_medal.svg"> <p class="most_voted_number num6" data-num="6"></p></div>
-                                    </div>
-
-                                    <div id="my_selected_number_div">
-                                        <p>your numbers : </p>
-                                    </div>
-                                </div>
-                            </div>
-
-
-
-
-                        </div>
-
-
-                        <div>
-
-
-
-                            <div class="winresult_grid">
-                                <div class="winresult_0">winner :</div>
-                                <div class="winresult_1 wnum0"></div>
-                                <div class="winresult_2 wnum1"></div>
-                                <div class="winresult_3 wnum2"></div>
-                                <div class="winresult_4 wnum3"></div>
-                                <div class="winresult_5 wnum4"></div>
-                                <div class="winresult_6 wnum5"></div>
-                                <div class="winresult_7 wnum6"></div>
-                                <div class="winresult_8 wnum7"></div>
-                                <div class="winresult_9">yours :</div>
-                                <div class="winresult_10 mnum0"></div>
-                                <div class="winresult_11 mnum1"></div>
-                                <div class="winresult_12 mnum2"></div>
-                                <div class="winresult_13 mnum3"></div>
-                                <div class="winresult_14 mnum4"></div>
-                                <div class="winresult_15 mnum5"></div>
-                                <div class="winresult_16 mnum6"></div>
-                                <div class="winresult_17 mnum7"></div>
-                                <div class="winresult_18">differ :</div>
-                                <div class="winresult_19 rnum0"></div>
-                                <div class="winresult_20 rnum1"></div>
-                                <div class="winresult_21 rnum2"></div>
-                                <div class="winresult_22 rnum3"></div>
-                                <div class="winresult_23 rnum4"></div>
-                                <div class="winresult_24 rnum5"></div>
-                                <div class="winresult_25 rnum6"></div>
-                                <div class="winresult_26 rnum7"></div>
-                                <div class="winresult_27 detail title2"></div>
-                                <div class="winresult_28">total winner :</div>
-                                <div class="winresult_29 total_winner title2"></div>
-                                <div class="winresult_30">amount :</div>
-                                <div class="winresult_31 prize title2">
-                                    <img>
-                                    <span></span>
-                                </div>
-                            </div>
-
-                        </div>
-
-                    </div>
-
-
-
-                    <br>
-                    <div id="current_my_ticket" class="inner_flex_column_div">
-                        <p class="title1">choose your numbers :</p>
-
-                        <small class="number_has_limit note">NOTE: you have number limitation by <b>[<span></span>]</b> numbers if you want to have 0 to 9 in option go to task and get full range</small>
-
-                        <div id="new_ticket">
-                            <div>
-                                <div>
-                                    <div class="flow_num">
-                                        <span class="num_value"></span>
-                                        <div class="num_sign">
-                                            <span class="num_click num_plus">+</span>
-                                            <span class="num_click num_minus">−</span>
-                                        </div>
-                                    </div>
-                                    <div class="flow_num">
-                                        <span class="num_value"></span>
-                                        <div class="num_sign">
-                                            <span class="num_click num_plus">+</span>
-                                            <span class="num_click num_minus">−</span>
-                                        </div>
-                                    </div>
-                                    <div class="flow_num">
-                                        <span class="num_value"></span>
-                                        <div class="num_sign">
-                                            <span class="num_click num_plus">+</span>
-                                            <span class="num_click num_minus">−</span>
-                                        </div>
-                                    </div>
-                                    <div class="flow_num">
-                                        <span class="num_value"></span>
-                                        <div class="num_sign">
-                                            <span class="num_click num_plus">+</span>
-                                            <span class="num_click num_minus">−</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="flow_num">
-                                        <span class="num_value"></span>
-                                        <div class="num_sign">
-                                            <span class="num_click num_plus">+</span>
-                                            <span class="num_click num_minus">−</span>
-                                        </div>
-                                    </div>
-                                    <div class="flow_num">
-                                        <span class="num_value"></span>
-                                        <div class="num_sign">
-                                            <span class="num_click num_plus">+</span>
-                                            <span class="num_click num_minus">−</span>
-                                        </div>
-                                    </div>
-                                    <div class="flow_num">
-                                        <span class="num_value"></span>
-                                        <div class="num_sign">
-                                            <span class="num_click num_plus">+</span>
-                                            <span class="num_click num_minus">−</span>
-                                        </div>
-                                    </div>
-                                    <div class="flow_num">
-                                        <span class="num_value"></span>
-                                        <div class="num_sign">
-                                            <span class="num_click num_plus">+</span>
-                                            <span class="num_click num_minus">−</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="add_ticket_div">
-                                <div>
-                                    <p id="add_new_number_bt" class="bt1">+ ADD</p>
-                                </div>
-                            </div>
-
-                        </div>
-
-
-                        <br>
-                    </div>
-
-
-                    <p class="title1">your chance number(s): </p>
-                    <div id="my_buyed_tickets">
-                        <!--                        <div class="new_ticket">
-                                                    <span>54528694</span>
-                                                </div>
-                                                <div class="new_ticket">
-                                                    <span>12345678</span>
-                                                </div>-->
-                    </div>
-
+                    </svg>
                 </div>
 
                 <br>
 
+                <div id="without_choosed_number_statistics" class="hide">
+                    <p class="title1">winner numbers statistics:</p>
+                    <div>
+                        <div class="winner_statistics">
+                            <span class="winner_item_0 num0"><span class="winner_num"></span><span
+                                    class="winner_qty"></span></span>
+                            <span class="grid_v winner_item_1"><img src="cdn/img/1rd_medal.svg"><span>$
+                                    1,000,000</span></span>
+                            <span class="winner_item_2 num1"><span class="winner_num"></span><span
+                                    class="winner_qty"></span></span>
+                            <span class="grid_v winner_item_3"><img src="cdn/img/2rd_medal.svg"><span>$
+                                    500,000</span></span>
+                            <span class="winner_item_4 num2"><span class="winner_num"></span><span
+                                    class="winner_qty"></span></span>
+                            <span class="grid_v winner_item_5"><img src="cdn/img/3rd_medal.svg"><span>$
+                                    500,000</span></span>
+                            <span class="winner_item_6 num3"><span class="winner_num"></span><span
+                                    class="winner_qty"></span></span>
+                            <span class="grid_v winner_item_7"><img src="cdn/img/4rd_medal.svg"><span>$
+                                    500,000</span></span>
+                        </div>
+                    </div>
+                </div>
 
+                <br>
 
-                <div class="bottom">
-                    <a href="./home.html" target="_self">
-                        <img src="cdn/img/wealth.png" class="big_img">
-                        <span>wheel</span>
-                    </a>
-                    <a href="./numbers.html" target="_self">
-                        <img src="cdn/img/bonus.png">
-                        <span>numbers</span>
-                    </a>
-                    <a href="./friends.html" target="_self">
-                        <img src="cdn/img/wheel.png">
-                        <span>friends</span>
-                    </a>
-                    <a href="./leaderboard.html" target="_self">
-                        <img src="cdn/img/bonus.png">
-                        <span>leaderboard</span>
-                    </a>
-                    <a href="./task.html" target="_self">
-                        <img src="cdn/img/bonus.png">
-                        <span>task</span>
-                    </a>
+                <div id="with_choosed_number_statistics" class="hide">
+                    <div id="vote_result">
+                        <div>
+                            <p class="title1">your previous numbers and situation : </p>
+                            <br>
+                            <div class="voted_num">
+                                <div>
+                                    <p>most voted numbers : </p>
+                                    <div><img src="cdn/img/1rd_medal.svg">
+                                        <p class="most_voted_number num0" data-num="0"></p>
+                                    </div>
+                                    <div><img src="cdn/img/2rd_medal.svg">
+                                        <p class="most_voted_number num1" data-num="1"></p>
+                                    </div>
+                                    <div><img src="cdn/img/3rd_medal.svg">
+                                        <p class="most_voted_number num2" data-num="2"></p>
+                                    </div>
+                                    <div><img src="cdn/img/4rd_medal.svg">
+                                        <p class="most_voted_number num3" data-num="3"></p>
+                                    </div>
+                                </div>
+                                <div id="my_selected_number_div">
+                                    <p>your numbers : </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="winresult_grid">
+                            <div class="winresult_0">winner :</div>
+                            <div class="winresult_1 wnum0"></div>
+                            <div class="winresult_2 wnum1"></div>
+                            <div class="winresult_3 wnum2"></div>
+                            <div class="winresult_4 wnum3"></div>
+                            <div class="winresult_5 wnum4"></div>
+                            <div class="winresult_6 wnum5"></div>
+                            <div class="winresult_7 wnum6"></div>
+                            <div class="winresult_8 wnum7"></div>
+                            <div class="winresult_9">yours :</div>
+                            <div class="winresult_10 mnum0"></div>
+                            <div class="winresult_11 mnum1"></div>
+                            <div class="winresult_12 mnum2"></div>
+                            <div class="winresult_13 mnum3"></div>
+                            <div class="winresult_14 mnum4"></div>
+                            <div class="winresult_15 mnum5"></div>
+                            <div class="winresult_16 mnum6"></div>
+                            <div class="winresult_17 mnum7"></div>
+                            <div class="winresult_18">difference :</div>
+                            <div class="winresult_19 rnum0"></div>
+                            <div class="winresult_20 rnum1"></div>
+                            <div class="winresult_21 rnum2"></div>
+                            <div class="winresult_22 rnum3"></div>
+                            <div class="winresult_23 rnum4"></div>
+                            <div class="winresult_24 rnum5"></div>
+                            <div class="winresult_25 rnum6"></div>
+                            <div class="winresult_26 rnum7"></div>
+                            <div class="winresult_27 detail title2"></div>
+                            <div class="winresult_28">total winner :</div>
+                            <div class="winresult_29 total_winner title2"></div>
+                            <div class="winresult_30">amount :</div>
+                            <div class="winresult_31 prize title2">
+                                <img>
+                                <span></span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <br>
+                
+                <div id="current_my_ticket" class="inner_flex_column_div">
+                    <p class="title1">choose your numbers :</p>
+                    <small class="number_has_limit note">NOTE: You have a number limitation of <b>[<span></span>]</b>
+                        numbers. If you want to have 0 to 9 as an option, go to the task and get the full range.</small>
+                    <div id="new_ticket">
+                        <div>
+                            <div>
+                                <div class="flow_num">
+                                    <span class="num_value"></span>
+                                    <div class="num_sign">
+                                        <span class="num_click num_plus">+</span>
+                                        <span class="num_click num_minus">−</span>
+                                    </div>
+                                </div>
+                                <div class="flow_num">
+                                    <span class="num_value"></span>
+                                    <div class="num_sign">
+                                        <span class="num_click num_plus">+</span>
+                                        <span class="num_click num_minus">−</span>
+                                    </div>
+                                </div>
+                                <div class="flow_num">
+                                    <span class="num_value"></span>
+                                    <div class="num_sign">
+                                        <span class="num_click num_plus">+</span>
+                                        <span class="num_click num_minus">−</span>
+                                    </div>
+                                </div>
+                                <div class="flow_num">
+                                    <span class="num_value"></span>
+                                    <div class="num_sign">
+                                        <span class="num_click num_plus">+</span>
+                                        <span class="num_click num_minus">−</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flow_num">
+                                    <span class="num_value"></span>
+                                    <div class="num_sign">
+                                        <span class="num_click num_plus">+</span>
+                                        <span class="num_click num_minus">−</span>
+                                    </div>
+                                </div>
+                                <div class="flow_num">
+                                    <span class="num_value"></span>
+                                    <div class="num_sign">
+                                        <span class="num_click num_plus">+</span>
+                                        <span class="num_click num_minus">−</span>
+                                    </div>
+                                </div>
+                                <div class="flow_num">
+                                    <span class="num_value"></span>
+                                    <div class="num_sign">
+                                        <span class="num_click num_plus">+</span>
+                                        <span class="num_click num_minus">−</span>
+                                    </div>
+                                </div>
+                                <div class="flow_num">
+                                    <span class="num_value"></span>
+                                    <div class="num_sign">
+                                        <span class="num_click num_plus">+</span>
+                                        <span class="num_click num_minus">−</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="add_ticket_div">
+                            <div>
+                                <p id="add_new_number_bt" class="bt1"><img src="cdn/img/add.svg"> Add this Number</p>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+
+                <div id="current_number_div" class="hide">
+                    <p class="title1">your chance number(s): </p>
+                    <div id="my_buyed_tickets">
+                    </div>
+                    <p id="send_numbers" class="bt1 bg_green hide"><img src="cdn/img/send.svg"> Send & Save</p>
                 </div>
             </div>
+            <br>
         </div>
+    </div>
 
 
 
 
-    </body>
+</body>
 
-    <script src="cdn/js/1tool.js"></script>
-    <script src="cdn/js/variable.js"></script>
-
-
-    <script src="cdn/js/numbers.js"></script>
-
-    <!--<script src="cdn/js/constants.js"></script>-->
-    <!--<script src="cdn/js/props.js"></script>-->
-
-    <!--<script type="module" src="cdn/js/tg.js"></script>-->
-
+<!-- <script src="cdn/js/1tool.js"></script>
+<script src="cdn/js/variable.js"></script>
+<script src="cdn/js/geek.toast.js"></script>
+<script src="cdn/js/numbers.js"></script> -->
 
 </html>
-
-
-<!--spin wheel-->
-<!--https://codepen.io/existencia/pen/rNVPQWo-->
-
-<!--animation snake loading-->
-<!--https://codepen.io/cassidoo/pen/KRdLvL-->
-<!--https://codepen.io/cssinate/pen/RjJeBG-->

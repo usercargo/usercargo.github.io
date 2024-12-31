@@ -1,248 +1,60 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>title</title>
-        <link rel="icon" type="image/x-icon" href="cdn/img/favicon.png">
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="robots" content="noindex">
-        
-        <link rel="stylesheet" type="text/css" href="cdn/css/geek_toast.css" />
-        <link rel="stylesheet" type="text/css" href="cdn/css/base.css" />
-        <link rel="stylesheet" type="text/css" href="cdn/css/friends.css" />
-    </head>
-    <body>
-        <div class="main">
-            <div class="wrapper">
-                <div class="header">
-                    <div><img src="cdn/img/bonus.png"><h3>topnft.top</h3></div>
-                    <div><h3 id='myname'></h3><img src='cdn/img/wheel.png'></div>
+
+<!-- <head>
+    <title>title</title>
+    <link rel="icon" type="image/x-icon" href="cdn/img/favicon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <link rel="stylesheet" type="text/css" href="cdn/css/geek_toast.css" />
+    <link rel="stylesheet" type="text/css" href="cdn/css/base.css" />
+    <link rel="stylesheet" type="text/css" href="cdn/css/friends.css" />
+</head> -->
+
+<body>
+    <div class="main">
+        <div class="wrapper">
+            <div class="middle">
+                <div class="img_head">
+                     <img src="cdn/img/friends3.svg">
                 </div>
-                <div class="middle">
-
-<!--                    <div class="img_head">
-                        <img src="cdn/img/2048.svg">
-                    </div>-->
-
-                    <div class="img_head">
-                        <video src="cdn/img/task_complete.mp4" autoplay muted loop></video>
+                <h1 class="title1">Invite friends to get <span id="my_invite_gift"></span> for you and <span
+                        id="friend_invite_gift"></span> for your friend ;)</h1>
+                <br><br>
+                <div class="flex_child">
+                    <div id="invite_telegram" class="bt1">
+                        <img src="cdn/img/telegram.svg">
+                        <span>direct invite</span>
                     </div>
-                    
-                    
-
-                    <!--                    <div>
-                                            <select class="select_1 select_country">
-                                                <option selected> Country ... </option>
-                                                <option>USA</option>
-                                                <option>Norway</option>
-                                                <option>Japan</option>
-                                            </select>
-                                            <select class="select_1 select_province hide1">
-                                                <option selected> Province ... </option>
-                                                <option>Chicago</option>
-                                                <option>Los Angeles</option>
-                                                <option>Tokyo</option>
-                                            </select>
-                    
-                                            <select class="select_1 select_area hide1">
-                                                <option selected> Country ... </option>
-                                                <option>Hollywood</option>
-                                                <option>Ginza</option>
-                                                <option>Eslamshahr</option>
-                                            </select>
-                    
-                                        </div>-->
-                    
-                    <h1 class="title1">Invite friends to get <span id="my_invite_gift"></span> for you and <span id="friend_invite_gift"></span> for your friend ;)</h1>
-                    <br><br>
-                    <div class="flex_child">
-                        <div id="invite_telegram" class="bt1">
-                            <img src="cdn/img/telegram.svg">
-                            <span>direct invite</span>    
-                        </div>
-                        <div id="invite_copy" class="bt1">
-                            <img src="cdn/img/copy.svg">
-                            <span>invite link</span>
-                        </div>
+                    <div id="invite_copy" class="bt1">
+                        <img src="cdn/img/copy.svg">
+                        <span>invite link</span>
                     </div>
-                    
-                    <div class="invite_qr_div">
-                        <p class="title2">or scan invite code : </p>
-                    <canvas id="invite_qr"></canvas>
-                    </div>
-                    
-                    <div id="friend_wrapper">
-                        <h2>your 10 recent invited friends : </h2>
-                        <br>
-                        <br>
-                        <div id="recent_friend">
-<!--                            <div class="friend_person">
-                                <img src="cdn/img/wheel.png">
-                                <div>
-                                    <span>john smith</span>
-                                    <div>
-                                        <small>3days : 20hours : 32minutes ago</small>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="friend_person">
-                                <img src="cdn/img/wheel.png">
-                                <div>
-                                    <span>john smith</span>
-                                    <div>
-                                        <small>3days : 20hours : 32minutes ago</small>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="friend_person">
-                                <img src="cdn/img/wheel.png">
-                                <div>
-                                    <span>john smith</span>
-                                    <div>
-                                        <small>3days : 20hours : 32minutes ago</small>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="friend_person">
-                                <img src="cdn/img/wheel.png">
-                                <div>
-                                    <span>john smith</span>
-                                    <div>
-                                        <small>3days : 20hours : 32minutes ago</small>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="friend_person">
-                                <img src="cdn/img/wheel.png">
-                                <div>
-                                    <span>john smith</span>
-                                    <div>
-                                        <small>3days : 20hours : 32minutes ago</small>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="friend_person">
-                                <img src="cdn/img/wheel.png">
-                                <div>
-                                    <span>john smith</span>
-                                    <div>
-                                        <small>3days : 20hours : 32minutes ago</small>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="friend_person">
-                                <img src="cdn/img/wheel.png">
-                                <div>
-                                    <span>john smith</span>
-                                    <div>
-                                        <small>3days : 20hours : 32minutes ago</small>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="friend_person">
-                                <img src="cdn/img/wheel.png">
-                                <div>
-                                    <span>john smith</span>
-                                    <div>
-                                        <small>3days : 20hours : 32minutes ago</small>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="friend_person">
-                                <img src="cdn/img/wheel.png">
-                                <div>
-                                    <span>john smith</span>
-                                    <div>
-                                        <small>3days : 20hours : 32minutes ago</small>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="friend_person">
-                                <img src="cdn/img/wheel.png">
-                                <div>
-                                    <span>john smith</span>
-                                    <div>
-                                        <small>3days : 20hours : 32minutes ago</small>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="friend_person">
-                                <img src="cdn/img/wheel.png">
-                                <div>
-                                    <span>john smith</span>
-                                    <div>
-                                        <small>3days : 20hours : 32minutes ago</small>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="friend_person">
-                                <img src="cdn/img/wheel.png">
-                                <div>
-                                    <span>john smith</span>
-                                    <div>
-                                        <small>3days : 20hours : 32minutes ago</small>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="friend_person">
-                                <img src="cdn/img/wheel.png">
-                                <div>
-                                    <span>john smith</span>
-                                    <div>
-                                        <small>3days : 20hours : 32minutes ago</small>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="friend_person">
-                                <img src="cdn/img/wheel.png">
-                                <div>
-                                    <span>john smith</span>
-                                    <div>
-                                        <small>3days : 20hours : 32minutes ago</small>
-                                    </div>
-                                </div>
-                            </div>-->
-
-                        </div>
-                    </div>
-
-
                 </div>
 
-                <div class="bottom">
-                    <a href="./home.html" target="_self">
-                        <img src="cdn/img/wealth.png" class="big_img">
-                        <span>wheel</span>
-                    </a>
-                    <a href="./numbers.html" target="_self">
-                        <img src="cdn/img/bonus.png">
-                        <span>numbers</span>
-                      </a>
-                    <a href="./friends.html" target="_self">
-                        <img src="cdn/img/wheel.png">
-                        <span>friends</span>
-                      </a>
-                    <a href="./leaderboard.html" target="_self">
-                        <img src="cdn/img/bonus.png">
-                        <span>leaderboard</span>
-                      </a>
-                    <a href="./task.html" target="_self">
-                        <img src="cdn/img/bonus.png">
-                        <span>task</span>
-                      </a>
+                <div class="invite_qr_div">
+                    <p class="title2">or scan invite code : </p>
+                    <canvas id="invite_qr_for_friends">browser can not support canvas!</canvas>
+                </div>
+
+                <div id="friend_wrapper">
+                    <h2 class="title1">your 10 most recently invited friends : </h2>
+                    <br>
+                    <br>
+                    <div id="recent_friend"></div>
                 </div>
             </div>
+
         </div>
+    </div>
 
+</body>
 
-
-
-    </body>
-
-    <script src="cdn/js/geek.toast.js"></script>
-    <script src="cdn/js/1tool.js"></script>
-    <script src="cdn/js/variable.js"></script>
-    <script src="cdn/js/qrious.min.js"></script>
-    <script src="cdn/js/friends.js"></script>
+<!-- <script src="cdn/js/geek.toast.js"></script>
+<script src="cdn/js/1tool.js"></script>
+<script src="cdn/js/variable.js"></script>
+<script src="cdn/js/qrious.min.js"></script>
+<script src="cdn/js/friends.js"></script> -->
 
 </html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>title</title>
+    <link rel="icon" type="image/x-icon" href="cdn/img/favicon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <script src="cdn/js/telegram-web-app.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="cdn/css/base.css" />
+    <link rel="stylesheet" type="text/css" href="cdn/css/geek_toast.css" />
+    <link class="tempo_css" rel="stylesheet" type="text/css" href="cdn/css/index4.css" />
+
+</head>
+
+<body>
+    <div class="main">
+
+        <div id="screen_div" class="hide">
+            <!-- <img src="cdn/img/ticket_bg.jpg"> -->
+            <img src="cdn/img/screen_bg/luxury4.jpeg">
+            <div>
+                <img id="screen_scroe_img">
+                <div>
+                    <div class="screen_logo_wrapper">
+                        <div>
+                            <div><small>by : </small><small id="screen_name"></small></div>
+                            <div><small>score : </small><small id="screen_scroe_value"></small></div>
+                            <div><small>at : </small><small id="screen_time"></small></div>
+                            <div><small>total score : </small><small id="screen_total_point"></small></div>
+                        </div>
+                        <div class="screen_logo">
+                            <img src="cdn/img/happy_hyacinth_macaw.png">
+                            <p>HAPPY</p>
+                        </div>
+                    </div>
+                    <!-- <div class="small_br"></div> -->
+                    <div class="screen_text_center">
+                        <h3 class="highlight fg_darkgreen">Get Numbers , Vote , Win</h3>
+                    </div>
+                    <div class="screen_text_center"><span><h3 class="fg_red highlight">$2,500,000<small>(usdt)</small></h3></span></div>
+                    <div class="screen_text_center"><span>to get <h3 class="fg_purple inline highlight">luxury</h3> experience</span></div>
+                    <div class="screen_text_center"><span>with this invite link, you get millions of points for free at first.</span>
+                    </div>
+                    <div class="small_br"></div>
+                    <div class="screen_center_elem"><img class="img_middle" src='cdn/img/telegram.svg'><small
+                            id="screen_invite_link"></small></div>
+                    <div class="screen_center_elem"><small>scan this qr code : </small>
+                        <canvas class="img_middle" id="invite_qr_by_score"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="wrapper">
+
+            <div class="header hide">
+                <div>
+                    <img src="cdn/img/happy_logo2.png">
+                    <h3>HAPPY</h3>
+                </div>
+                <div>
+                    <h3 id='my_name'></h3><img id="my_pic">
+                </div>
+            </div>
+
+            <div class="middle">
+                <div id="intro_wrapper">
+                    <video id="intro_video" autoplay muted preload poster="" src="cdn/video/228834_tiny.mp4"></video>
+                    <!-- <div id="middle_blur"></div> -->
+                    <div id="middle_content">
+                        <p>Your Dream Comes True</p>
+                        <p class="bolder">Success</p>
+                        <p class="bolder">Happiness</p>
+                        <p class="bolder">Money</p>
+                        <br>
+                        <p>with $2,500,000 you could have them all</p>
+                        <br>
+                        <p>Happy is your life's chance</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bottom hide">
+                <div data-page="home">
+                    <img src="cdn/img/wheel2.svg">
+                    <span>wheel</span>
+                </div>
+                <div data-page="numbers">
+                    <img src="cdn/img/ticket4.svg">
+                    <span>numbers</span>
+                </div>
+                <div data-page="friends">
+                    <img src="cdn/img/friends3.svg">
+                    <span>friends</span>
+                </div>
+                <div data-page="leaderboard">
+                    <img src="cdn/img/leaderboard4_small.png">
+                    <span>leaderboard</span>
+                </div>
+                <div data-page="task">
+                    <img src="cdn/img/task2.svg">
+                    <span>task</span>
+                </div>
+                <div data-page="voice">
+                    <img src="cdn/img/clown3.svg">
+                    <span>voice</span>
+                </div>
+            </div>
+
+
+
+            <div class="void_number_parent hide">
+                <div>
+                    <h2>please select number to set 10X of chance</h2>
+                    <br>
+                    <small>every 10X chance needs 1B points</small>
+                    <br>
+                    <div class="void_number_list">
+                    </div>
+                    <br>
+                    <br>
+                    <div class="void_number_bt">
+                        <div class="bt1 bg_green" id="set_void_number_bt"><img src="cdn/img/10x.svg"><b>set 10X chance</b>
+                        </div>
+                        <div class="bt1 bg_orange" id="cancel_void_number_bt"><img src="cdn/img/cancel.svg"><span>cancel</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+</body>
+
+<script src="cdn/js/1tool.js"></script>
+<script src="cdn/js/variable.js"></script>
+<script src="cdn/js/geek.toast.js"></script>
+<div id="tempo_js">
+    <script src="cdn/js/index4.js" async></script>
+</div>
+<script src="cdn/js/path_router.js"></script>
+
+</html>
