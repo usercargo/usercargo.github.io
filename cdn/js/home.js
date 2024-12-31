@@ -328,7 +328,7 @@ function setReminedTimeOfWheel() {
 
 setReminedTimeOfWheel();
 
-var clockAlarmBt = $s(".clock_alarm"), clockAlarmFlag = Boolean(localStorage.getItem(LS_VAR.WHEEL_CLOCK_ALARM));
+var clockAlarmBt = $s(".clock_alarm"), clockAlarmFlag = localStorage.getItem(LS_VAR.WHEEL_CLOCK_ALARM),clockAlarmFlag= clockAlarmFlag===null||clockAlarmFlag==="true";
 if (clockAlarmFlag) {
     clockAlarmBt.classList.add("clock_alarm_actived");
 }
@@ -568,7 +568,7 @@ $s("#cancel_leader").onclick = () => {
     startAlarm();
 };
 function startAlarm() {
-    if (clockAlarmFlag) {
+    if (clockAlarmFlag) { 
         ringingAudio.play().catch(error => {
             console.error('Playback failed:', error);
         });

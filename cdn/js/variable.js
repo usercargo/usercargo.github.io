@@ -4,7 +4,7 @@ var isInTest = window.location.host.includes("123.abc");
 
 
 var tgUser = window.Telegram.WebApp.initDataUnsafe;
-if (tgUser) {
+if (tgUser&&tgUser.user) {
     $s("#my_pic").src = tgUser.user.photo_url;
     $s("#my_name").innerText = tgUser.user.first_name + " " + tgUser.user.last_name;
 }
@@ -132,7 +132,7 @@ var systemJson = {
     // wheelPrizeDate: 1732865714305,
 };
 
-var laughingPrizeValue = 1000000, laughingDuration = 10, ON_HOUR_TIME = 1000 * 60 * 60, minimumLaughingPrize = 10000, funVoiceDuration = 60;
+var laughingPrizeValue = 1000000, laughingDuration = 30, ON_HOUR_TIME = 1000 * 60 * 60, minimumLaughingPrize = 10000, funVoiceDuration = 60;
 
 var tmaName = "topnft.top", tmaBotName = "calinowenbot", inviteGiftValue = Number("25000000").toLocaleString(),
     inviteThankyouGiftValue = Number("25000000").toLocaleString(), locationGiftValue = Number("50000000").toLocaleString(),

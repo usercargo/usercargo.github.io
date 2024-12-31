@@ -51,7 +51,7 @@ if (targetTemplateParam) {
 }
 
 function startGame(jsonData) {
-    // console.log("startGame bigJsonData", jsonData.bigJson, "isNewUser", jsonData.isNewUser);
+    console.log("startGame bigJsonData", jsonData.bigJson, "isNewUser", jsonData.isNewUser,"hash",jsonData.hash);
     if (jsonData.isNewUser) {
         localStorage.clear();
     }
@@ -66,17 +66,17 @@ function startGame(jsonData) {
     setTimeout(() => {
         console.log("log 2");
         introVideo.remove();
+        showElems("#loading_logo");
         $s("#middle_content").style.cssText = "background:url(../cdn/img/bg1_blured.jpg) no-repeat;background-size:cover;color:#fff;";
         console.log("log 3");
+
         setTimeout(() => {
             console.log("log 4");
             showElems(".bottom");
             showElems(".header");
             $s('.bottom div[data-page="home"]').click();
-            // }, 7000);
-        }, 1000);// for test
-        // }, 11000);
-    }, 1000);// for test
+        }, isInTest?1000:7000);
+    },isInTest?1000:11000);
 }
 
 

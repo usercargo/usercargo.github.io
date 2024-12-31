@@ -14,6 +14,7 @@ function startRecordClicked() {
     }
 }
 function laughingAudioPermission() {
+    toast.success("start to laughing now!");
     laughCounter = 1;
     laughInterval = setInterval(() => {
         laughText.innerText = laughCounter++ + "s";
@@ -37,6 +38,7 @@ function afterRecord(blob) {
             arrayBuffer = fileReader.result;
             laughAudio.src = window.URL.createObjectURL(blob);
             console.log(blob, fileReader, arrayBuffer);
+            toast.success("please wait for result!");
             decodeFile(arrayBuffer, "getMoodResultOfLaughing");
             laughAudio.play();
         };
