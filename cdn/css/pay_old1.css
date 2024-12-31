@@ -1,0 +1,559 @@
+
+
+
+.header{
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    /* height: 40px; */
+    /* background: aliceblue; */
+    color: snow;
+}
+.header h2{
+    text-align: center;
+    margin-top: 20px;
+}
+.header h4{
+    padding-left: 20px;
+    color: ghostwhite;
+}
+body{
+    color:white;
+}
+.prize_details{
+    /*height: 100%;*/
+    display: flex;
+    flex-direction: column;
+    line-height: 2rem;
+    /* align-items: start; */
+    /* justify-content: center;*/
+}
+.header .name{
+    font-size: calc(7px + .6vw);
+}
+.header>div>img{
+    max-height: 100%;
+    margin: 7px;
+}
+.main{
+    width: 100%;
+    height: auto;
+    overflow: auto;
+}
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    background: #081a2e;
+    /*background: whitesmoke;*/
+    max-width: 15cm;
+    margin: 0 auto;
+    /*height: 100vh;*/
+    width: 100%;
+    justify-content: space-between;
+}
+.middle{
+    /*background: aqua;*/
+    flex: 1;
+}
+.bottom{
+    background-color: #ffffffab;
+    border-bottom: 1px solid lightgray;
+    backdrop-filter: blur(4px);
+    display: flex;
+    justify-content: space-around;
+}
+.bottom div{
+    height: 2cm;
+    width: 2cm;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    justify-content: end;
+}
+.bottom img:not(.big_img){
+    max-height: calc(100% - 20px);
+}
+.bottom img{
+    transition: cubic-bezier(0, 2.28, 0.95, 0.69) 0.5s;
+}
+
+.paint_price{
+    width: 100%;
+    background: blue;
+}
+.paint_price td{
+    text-align: center;
+}
+
+#new_ticket{
+    display: flex;
+    justify-content: space-around;
+}
+.add_ticket_div{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.add_ticket_check{
+    font-size: small;
+    display: flex;
+    color: darkgray;
+}
+.add_ticket_check label{
+    margin-left: 2px;
+}
+.new_ticket{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 10px 0;
+}
+.new_ticket small{
+    color: gray;
+}
+.new_ticket>span{
+    /* font-weight: 900; */
+    font-size: calc(16px + 6vw);
+    letter-spacing: 15px;
+    border-radius: 12px;
+    padding: 5px;
+    background: #a9ff0085;
+    border: 2px solid lime;
+
+}
+.new_ticket>img{
+    max-height: 40px;
+    max-width: 40px;
+    cursor: pointer;
+}
+
+.half_ticket>span{
+    background: #ffa50094;
+    border: 2px solid orange;
+}
+.ticket_calc{
+    padding: 20px;
+    margin: 10px 0;
+    /*border-top: 1px dashed lightgray;*/
+    /*border-bottom: 1px dashed lightgray;*/
+
+}
+.ticket_discount_calc{
+    display: inline-flex;
+    flex-direction: column-reverse;
+    align-items: center;
+}
+.ticket_calc>p{
+    display: flex;
+    align-items: end;
+}
+
+
+
+
+
+.wallet_div{
+    display: flex;
+    height: 69px;
+    background: gray;
+    padding: 5px;
+    margin: 4px 6px;
+    border: 1px solid whitesmoke;
+    border-radius: 9px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.good_chance{
+    background: limegreen !important;
+}
+.low_chance{
+    background: darkred !important;
+}
+.mid_chance{
+    background: cadetblue !important;
+}
+
+.number_distance_grid {
+display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    /* gap: 0px; */
+    height: 100%;
+    text-align: center;
+    background: dimgray;
+    padding: 2px;
+    border-radius: 5px;
+    margin: 3px;
+}
+.number_distance_grid>*{
+    background: #333;
+    margin: 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    /*padding: 2px;*/
+}
+.distance_item_0,.distance_item_1,.distance_item_2{
+    font-size: 11px;
+}
+.distance_item_4,.distance_item_7,.distance_item_10,.distance_item_13,.distance_item_16,.distance_item_19,.distance_item_22,.distance_item_25{
+    background: #181818;
+}
+.distance_item_27,.distance_item_28{
+    font-size: 14px;
+    font-weight: 600;
+}
+.distance_item_0 {
+    grid-row-start: 1;
+    grid-column-start: 1;
+    grid-row-end: 3;
+    grid-column-end: 4;
+}
+.distance_item_1 {
+    grid-row-start: 3;
+    grid-column-start: 1;
+    grid-row-end: 5;
+    grid-column-end: 4;
+}
+.distance_item_2 {
+    grid-row-start: 5;
+    grid-column-start: 1;
+    grid-row-end: 7;
+    grid-column-end: 4;
+}
+.distance_item_3 {
+    grid-row-start: 1;
+    grid-column-start: 4;
+    grid-row-end: 3;
+    grid-column-end: 5;
+}
+.distance_item_4 {
+    grid-row-start: 3;
+    grid-column-start: 4;
+    grid-row-end: 5;
+    grid-column-end: 5;
+}
+.distance_item_5 {
+    grid-row-start: 5;
+    grid-column-start: 4;
+    grid-row-end: 7;
+    grid-column-end: 5;
+}
+.distance_item_6 {
+    grid-row-start: 1;
+    grid-column-start: 5;
+    grid-row-end: 3;
+    grid-column-end: 6;
+}
+.distance_item_7 {
+    grid-row-start: 3;
+    grid-column-start: 5;
+    grid-row-end: 5;
+    grid-column-end: 6;
+}
+.distance_item_8 {
+    grid-row-start: 5;
+    grid-column-start: 5;
+    grid-row-end: 7;
+    grid-column-end: 6;
+}
+.distance_item_9 {
+    grid-row-start: 1;
+    grid-column-start: 6;
+    grid-row-end: 3;
+    grid-column-end: 7;
+}
+.distance_item_10 {
+    grid-row-start: 3;
+    grid-column-start: 6;
+    grid-row-end: 5;
+    grid-column-end: 7;
+}
+.distance_item_11 {
+    grid-row-start: 5;
+    grid-column-start: 6;
+    grid-row-end: 7;
+    grid-column-end: 7;
+}
+.distance_item_12 {
+    grid-row-start: 1;
+    grid-column-start: 7;
+    grid-row-end: 3;
+    grid-column-end: 8;
+}
+.distance_item_13 {
+    grid-row-start: 3;
+    grid-column-start: 7;
+    grid-row-end: 5;
+    grid-column-end: 8;
+}
+.distance_item_14 {
+    grid-row-start: 5;
+    grid-column-start: 7;
+    grid-row-end: 7;
+    grid-column-end: 8;
+}
+.distance_item_15 {
+    grid-row-start: 1;
+    grid-column-start: 8;
+    grid-row-end: 3;
+    grid-column-end: 9;
+}
+.distance_item_16 {
+    grid-row-start: 3;
+    grid-column-start: 8;
+    grid-row-end: 5;
+    grid-column-end: 9;
+}
+.distance_item_17 {
+    grid-row-start: 5;
+    grid-column-start: 8;
+    grid-row-end: 7;
+    grid-column-end: 9;
+}
+.distance_item_18 {
+    grid-row-start: 1;
+    grid-column-start: 9;
+    grid-row-end: 3;
+    grid-column-end: 10;
+}
+.distance_item_19 {
+    grid-row-start: 3;
+    grid-column-start: 9;
+    grid-row-end: 5;
+    grid-column-end: 10;
+}
+.distance_item_20 {
+    grid-row-start: 5;
+    grid-column-start: 9;
+    grid-row-end: 7;
+    grid-column-end: 10;
+}
+.distance_item_21 {
+    grid-row-start: 1;
+    grid-column-start: 10;
+    grid-row-end: 3;
+    grid-column-end: 11;
+}
+.distance_item_22 {
+    grid-row-start: 3;
+    grid-column-start: 10;
+    grid-row-end: 5;
+    grid-column-end: 11;
+}
+.distance_item_23 {
+    grid-row-start: 5;
+    grid-column-start: 10;
+    grid-row-end: 7;
+    grid-column-end: 11;
+}
+.distance_item_24 {
+    grid-row-start: 1;
+    grid-column-start: 11;
+    grid-row-end: 3;
+    grid-column-end: 12;
+}
+.distance_item_25 {
+    grid-row-start: 3;
+    grid-column-start: 11;
+    grid-row-end: 5;
+    grid-column-end: 12;
+}
+.distance_item_26 {
+    grid-row-start: 5;
+    grid-column-start: 11;
+    grid-row-end: 7;
+    grid-column-end: 12;
+}
+.distance_item_27 {
+    grid-row-start: 1;
+    grid-column-start: 12;
+    grid-row-end: 4;
+    grid-column-end: 15;
+}
+.distance_item_28 {
+    grid-row-start: 4;
+    grid-column-start: 12;
+    grid-row-end: 7;
+    grid-column-end: 15;
+}
+
+
+
+
+
+
+
+
+
+.winner_statistics {
+   display: grid; 
+   grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+   grid-template-columns: 1fr 1fr;
+   gap: 0px;
+   height: 100%;
+       text-align: center;
+    background: dimgray;
+    padding: 2px;
+    border-radius: 5px;
+    margin: 3px;
+    font-size: 20px;
+}
+.winner_statistics img{
+    max-height: 50px;
+    max-width: 50px;
+    margin-right: 15px;
+        padding: 0px 0 3px 0;
+    margin-left: 20px;
+}
+.grid_v>span{
+margin-left: 9px;
+    flex: 1;
+}
+.winner_statistics>*{
+    background: #333;
+    margin: 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    /*padding: 2px;*/
+}
+.winner_num{
+        letter-spacing: 5px;
+    margin-right: 15px;
+}
+.winner_qty{
+        /*color: springgreen;*/
+        color:#c1c1c1;
+    font-size: 17px;
+    background: dimgray;
+    padding: 2px 4px;
+    border-radius: 5px;
+}
+.winner_item_0 {
+   grid-row-start: 1;
+   grid-column-start: 1;
+   grid-row-end: 2;
+   grid-column-end: 2;
+}
+.winner_item_1 {
+grid-row-start: 1;
+   grid-column-start: 2;
+   grid-row-end: 2;
+   grid-column-end: 3;
+       background: #004100;
+       justify-content: space-between;
+       font-size: 23px;
+           font-weight: 600;
+    text-shadow: 0 0 11px lime;
+    color: lime;
+}
+.winner_item_2 {
+   grid-row-start: 2;
+   grid-column-start: 1;
+   grid-row-end: 3;
+   grid-column-end: 2;
+}
+.winner_item_3 {
+   grid-row-start: 2;
+   grid-column-start: 2;
+   grid-row-end: 3;
+   grid-column-end: 3;
+       background: #045104;
+       justify-content: space-between;
+           /*font-weight: 600;*/
+    color: lawngreen;
+}
+.winner_item_4 {
+   grid-row-start: 3;
+   grid-column-start: 1;
+   grid-row-end: 4;
+   grid-column-end: 2;
+}
+.winner_item_5 {
+   grid-row-start: 3;
+   grid-column-start: 2;
+   grid-row-end: 4;
+   grid-column-end: 3;
+   background: #065d06;
+   justify-content: space-between;
+       font-size: 19px;
+}
+.winner_item_6 {
+   grid-row-start: 4;
+   grid-column-start: 1;
+   grid-row-end: 5;
+   grid-column-end: 2;
+}
+.winner_item_7 {
+   grid-row-start: 4;
+   grid-column-start: 2;
+   grid-row-end: 5;
+   grid-column-end: 3;
+   background: #006b00;
+   justify-content: space-between;
+       font-size: 18px;
+}
+.winner_item_8 {
+   grid-row-start: 5;
+   grid-column-start: 1;
+   grid-row-end: 6;
+   grid-column-end: 2;
+   }
+.winner_item_9 {
+grid-row-start: 5;
+   grid-column-start: 2;
+   grid-row-end: 6;
+   grid-column-end: 3;
+   background: #007500;
+   justify-content: space-between;
+       font-size: 17px;
+}
+.winner_item_10 {
+   grid-row-start: 6;
+   grid-column-start: 1;
+   grid-row-end: 7;
+   grid-column-end: 2;
+}
+.winner_item_11 {
+   grid-row-start: 6;
+   grid-column-start: 2;
+   grid-row-end: 7;
+   grid-column-end: 3;
+   background: #038303;
+   justify-content: space-between;
+       font-size: 16px;
+}
+.winner_item_12 {
+   grid-row-start: 7;
+   grid-column-start: 1;
+   grid-row-end: 8;
+   grid-column-end: 2;
+}
+.winner_item_13 {
+   grid-row-start: 7;
+   grid-column-start: 2;
+   grid-row-end: 8;
+   grid-column-end: 3;
+   background: #098d09;
+justify-content: space-between;
+    font-size: 15px;
+}
+  

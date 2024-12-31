@@ -1,30 +1,20 @@
 #task_wrapper{
-    /*width: 10cm;*/
-    margin: 20px;
     padding: 10px;
-    /*flex-grow: 1;*/
-
     overflow: auto;
-
-    /* for Firefox */
     min-height: 0;
 }
 .task_div{
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* color: white; */
-    /* background: aqua; */
-    /* width: 400px; */
-    /* height: 65px; */
-    /* margin: 0 auto; */
-    /* border: 2px solid #a1a1a1; */
-    box-shadow: 0 0 8px white;
+    background: #ff000036;
+    background-color: #8002d391;
+    background-color: #00000057;
+    box-shadow: 0 0 9px black;
     border-radius: 9px 60px;
-    ;
     font-size: 1rem;
-    margin: 25px 0;
-    padding: 25px;
+    margin: 30px 15px;
+    padding: 17px;
 
 }
 .task_name{
@@ -38,28 +28,23 @@
 .task_name img{
     max-height: 120px;
     object-fit: contain;
-    /* margin-bottom: 9px; */
     min-width: 90px;
     max-width: 65%;
     margin: 0 auto 35px auto;
 }
 .task_call{
     display: flex;
+    flex-direction: column;
     width: 100%;
     justify-content: space-evenly;
     align-items: center;
     color: ghostwhite;
-    padding: 15px;
-    margin: 15px;
-    height: 65px;
     font-size: 16px;
     font-weight: 600;
 }
-.task_call>*:not(.vertical_hr){
-    flex: 1;
-    padding: 0 5px;
-    display: flex;
-    justify-content: center;
+.task_call>div{
+    margin: 15px;
+    min-width: 4cm;
 }
 .task_call img{
     max-height: 35px;
@@ -67,7 +52,6 @@
     margin: 0 9px;
 }
 .task_details{
-    /*text-align: center;*/
     color: darkgray;
     font-size: 16px;
     margin: 10px;
@@ -84,12 +68,9 @@
 .leader_person>div{
     flex: 1;
     display: flex;
-    /* background: #bddaed; */
     flex-direction: column;
     justify-content: space-evenly;
     height: 100%;
-    /* margin: 5px 10px; */
-    /* align-items: center; */
     background: #ffffff4f;
     padding: 0 15px;
     border-radius: 0 30px;
@@ -111,7 +92,6 @@
     align-items: center;
     background: #081a2e;
     color: whitesmoke;
-    /*height: 100%;*/
 }
 #laugh_result_modal>div:not(.play_laugh_div){
     display: flex;
@@ -151,6 +131,29 @@
     font-size: 1.3rem;
     margin: 0;
 }
-
-
+#task_modal{
+    position: fixed;
+    height: 100svh;
+    width: 100svw;
+    top: 0;
+    left: 0;
+    background-color: #081a2e;
+    z-index: 2000;
+    overflow: auto;
+    scrollbar-width: none;
+}
+#task_modal_close{
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    color: red;
+    font-size: 22px;
+    font-weight: 900;
+}
+#task_modal>div{
+    width: 100%;
+    height: 100%;
+    padding-top: 25px;
+    /* background-color: aqua; */
+}
 

@@ -1,0 +1,60 @@
+#voice_title{
+    text-align: center;
+}
+#voice_wrapper{
+    padding: 10px;
+    flex-grow: 1;
+    overflow: auto;
+    /* for Firefox */
+    min-height: 0;
+}
+#my_voice{
+    margin: 99px 0;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.like_dislike_div{
+    justify-content: center !important;
+}
+#fun_voice_statistics>div,#fun_voice_statistics>div>div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #ffffff34;
+    border-radius: 5px;
+    padding: 3px;
+    margin: 2px;
+}
+#fun_voice_statistics img{
+    max-height: 20px;
+    margin-right: 4px;
+}
+.voice_div,.voice_div>div{
+    display: flex;
+    font-size: 2rem;
+    height: 60px;
+    align-items: center;
+    justify-content: space-evenly;
+    flex: 1;
+}
+.voice_div{
+    margin: 7px 0;
+    border-radius: 14px;
+    background: #ffffff44;
+}
+
+.voice_div>div>*{
+    margin: 5px;
+}
+.voice_num{
+    min-width: 50px;
+}
+
+.voice_liked{
+    background: #73eb088c !important;
+}
+.voice_disliked{
+    background: #ff49009c !important;
+}
+
