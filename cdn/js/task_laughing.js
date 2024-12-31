@@ -8,10 +8,11 @@ function startRecordClicked() {
         laughingLockFlag = true;
         console.log("ontouchstart");
         startRecording("afterRecord", "laughingAudioPermission");
-    } else {
-        let t = getDateDiffrence(lastLaughingTimeValue, new Date() * 1, { m: true, s: true });
-        toast.info("please wait " + (59 - t.m) + "m: " + (60 - t.s) + "s for next time");
-    }
+    } 
+    // else {
+    //     let t = getDateDiffrence(lastLaughingTimeValue, new Date() * 1, { m: true, s: true });
+    //     toast.info("please wait " + (59 - t.m) + "m: " + (60 - t.s) + "s for next time");
+    // }
 }
 function laughingAudioPermission() {
     toast.success("start to laughing now!");

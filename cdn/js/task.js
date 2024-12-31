@@ -91,12 +91,18 @@ function setErrorLocation(msg) {
 
 var laughBt = $s("#laugh_bt"), laughingRunLock = false;
 laughBt.onclick = () => {
-    if (laughingRunLock) {
-        toast.warning("please wait :)");
+    if (laughingLockFlag) {
+        let t = getDateDiffrence(lastLaughingTimeValue, new Date() * 1, { m: true, s: true });
+        toast.info("please wait " + (59 - t.m) + "m: " + (60 - t.s) + "s for next time");
     } else {
-        laughingRunLock = true;
-        toast.info("please wait for a while!");
-        setJsTempo(pages.laughing_lib);
+        if (laughingRunLock) {
+            toast.warning("please wait :)");
+        } else {
+            clearInterval(laughBetweenInterval);
+            laughingRunLock = true;
+            toast.info("please wait for a while!");
+            setJsTempo(pages.laughing_lib);
+        }
     }
 }
 
@@ -264,6 +270,9 @@ var laughingResultTimeout;
 $s("#task_modal_close").onclick = () => {
     $s("#task_modal div").innerHTML = "";
     hideElems("#task_modal");
+    if (typeof laughAudio != "undefined") {
+        laughAudio.pause();
+    }
 }
 function setTaskInit() {
     hideElems("#location");
@@ -317,9 +326,9 @@ function setTowerGameTimer() {
     var d = new Date() * 1;
     if (lastTowerGameTimeValue + ON_HOUR_TIME < d) {
         towerGameText.innerText = "play";
-        towerGameLockFlag = false;
+        // towerGameLockFlag = false;
     } else {
-        towerGameLockFlag = true;
+        // towerGameLockFlag = true;
         let diff;
         clearInterval(towerGameBetweenInterval);
         towerGameBetweenInterval = setInterval(() => {
@@ -538,13 +547,13 @@ function destroyAction() {
     // if(walletInitTimeout){
     clearTimeout(walletInitTimeout);
     // }
-    if(laughingResultTimeout){
+    if (laughingResultTimeout) {
         if (laughingLockFlag) {
             stopRecording();
         }
-    clearTimeout(laughingResultTimeout);
-    clearInterval(laughInterval);
-    clearInterval(laughBetweenInterval);
+        clearTimeout(laughingResultTimeout);
+        clearInterval(laughInterval);
+        clearInterval(laughBetweenInterval);
     }
     clearInterval(towerGameBetweenInterval)
 
