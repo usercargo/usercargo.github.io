@@ -1,5 +1,5 @@
 var fireWorksInterval, fireworksCanvasElem;
-function playFireWorks(canvasId) {
+function playFireWorks(canvasId,audioSrc) {
     fireworksCanvasElem = document.getElementById(canvasId);
     var ctx = fireworksCanvasElem.getContext("2d"),
             cw = window.innerWidth,
@@ -18,10 +18,8 @@ function playFireWorks(canvasId) {
     fireworksCanvasElem.height = ch;
 
     // var snd = new Audio("http://soundjax.com/reddo/38563%5EFirework.mp3"); // buffers automatically when created
-    var snd = new Audio("http://soundjax.com/reddo/51715%5Efirework.mp3");
-
-
-
+    var snd = new Audio(audioSrc||"cdn/sound/clap1.mp3");
+    
     // now we are going to setup our function placeholders for the entire demo
 
     // get a random number within a range

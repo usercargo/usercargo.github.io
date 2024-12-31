@@ -1,24 +1,27 @@
+var newChanceNumberArr = new Set();
+
+
 if (inputNumberList.length < 10) {
     $s(".number_has_limit").classList.remove(hidden);
     $s(".number_has_limit span").innerText = inputNumberList;
 }
 document.body.addEventListener('click', function (event) {
-//    console.log(event.target);
+    //    console.log(event.target);
     if (event.target.classList.contains('num_click')) {
         setNumberToFlowNumber(event.target, inputNumberList);
     }
 });
-//let totalPrizeTitle=;
-updateNumber($s("#total_prize_title"), 0, 2750000, 237);
+updateNumber($s("#total_prize_title"), 0, 2500000, 237);
 function setNumberToFlowNumber(elem, inputNumberList) {
     let e = elem.closest(".flow_num"), c = inputNumberList.indexOf(e.querySelector(".num_value").innerText), isPlue = elem.classList.contains("num_plus");
     console.log("c:", c, e.querySelector(".num_value").innerText);
     e.querySelector(".num_value").innerText = isPlue && c < inputNumberList.length - 1 ? inputNumberList[++c] : (!isPlue && c > 0 ? inputNumberList[--c] : inputNumberList[c]);
 }
+var randomFlowNumberTimeout;
 function setRandomFlowNumber(parentElem, inputNumberList) {
     let c = 100, lastNumber = inputNumberList[Math.floor(Math.random() * inputNumberList.length)], currentNumber;
     parentElem.querySelectorAll(".num_value").forEach(a => {
-        setTimeout(() => {
+        randomFlowNumberTimeout = setTimeout(() => {
             do {
                 currentNumber = inputNumberList[Math.floor(Math.random() * inputNumberList.length)];
             } while (currentNumber === lastNumber)
@@ -33,30 +36,10 @@ function getFlowNumberValue(parentElem) {
     $s(parentElem + " .num_value", 0, 1).forEach(q => {
         val += q.innerText.trim();
     });
-    return Number(val);
+    return val;
 }
-//function revealPrizeAnim(){
-//    var c=1, prizes= [["$1,000,000","for 8 numbers most voted winners"],["$500,000","for 7 numbers most voted winners"],["$250,000","for 6 numbers most voted winners"],
-//        ["$250,000","for 5 numbers less voted losers"],["$250,000","for 4 numbers less voted losers"],["$250,000","for 3 numbers less voted losers"],["$250,000","for 2 numbers less voted losers"]];
-//    setInterval(()=>{
-////        $s(".prize_type_value").classList.remove("");
-////        $s(".prize_type_text").classList.remove("");
-//        $s(".prize_type_value b").innerText=prizes[c][0];
-//        $s(".prize_type_text span").innerText=prizes[c][1];
-//        c++;
-//        if(c>=prizes.length){
-//            c=0;
-//        }
-//    },7000);
-//}
-//revealPrizeAnim()
-//
-//
-//
-//
-//text shado anim
 
-const elts = {
+var elts = {
     text1: document.querySelector(".text_shadow_anim_text1"),
     text2: document.querySelector(".text_shadow_anim_text2")
 }, elms = {
@@ -66,29 +49,24 @@ const elts = {
     img2: elts.text2.querySelector("img")
 };
 
-const texts = [
-//    "1-create",
-//    "2-share",
-//    "3-vote",
-//    "4-win"
-    ["cdn/img/1rd_medal.svg", "1- <span class='fg_aqua'>create/mine your power of ART</span>"],
-    ["cdn/img/4rd_medal.svg", "2- <span class='fg_orange'>share on the social medias with your lucky numbers</span>"],
-    ["cdn/img/5rd_medal.svg", "3- <span class='fg_lime'>give votes</span>"],
-    ["cdn/img/7rd_medal.svg", "4- <span class='fg_red'>win <b class='fg_lime'>$1,000,000</b> prize</span>"]
+var texts = [
+    ["cdn/img/share_on_social_media.svg", "1- share your art on social media"],
+    ["cdn/img/vote_invitation.svg", "2- give votes"],
+    ["cdn/img/win_prize.svg", "3- win <b class='fg_lime'>$1,000,000</b> prize</span>"]
 ];
 
-const morphTime = 2;
-const cooldownTime = 7;
+var morphTime = 2;
+var cooldownTime = 5;
 
-let textIndex = texts.length - 1;
-let textShadowAnimTime = new Date();
-let morph = 0;
-let cooldown = cooldownTime;
+var firstIndex = texts.length - 1;
+var textShadowAnimTime = new Date();
+var morph = 0;
+var cooldown = cooldownTime;
 
-elms.span1.innerHTML = texts[textIndex % texts.length][1];
-elms.span2.innerHTML = texts[(textIndex + 1) % texts.length][1];
-elms.img1.src = texts[textIndex % texts.length][0];
-elms.img2.src = texts[(textIndex + 1) % texts.length][0];
+elms.span1.innerHTML = texts[firstIndex % texts.length][1];
+elms.span2.innerHTML = texts[(firstIndex + 1) % texts.length][1];
+elms.img1.src = texts[firstIndex % texts.length][0];
+elms.img2.src = texts[(firstIndex + 1) % texts.length][0];
 
 function doMorph() {
     morph -= cooldown;
@@ -112,10 +90,13 @@ function setMorph(fraction) {
     elts.text1.style.filter = `blur(${Math.min(8 / fraction - 8, 100)}px)`;
     elts.text1.style.opacity = `${Math.pow(fraction, 0.4) * 100}%`;
 
-    elms.span1.innerHTML = texts[textIndex % texts.length][1];
-    elms.span2.innerHTML = texts[(textIndex + 1) % texts.length][1];
-    elms.img1.src = texts[textIndex % texts.length][0];
-    elms.img2.src = texts[(textIndex + 1) % texts.length][0];
+    elms.span1.innerHTML = texts[firstIndex % texts.length][1];
+    elms.span2.innerHTML = texts[(firstIndex + 1) % texts.length][1];
+    elms.img1.src = texts[firstIndex % texts.length][0];    
+    elms.img2.src = texts[(firstIndex + 1) % texts.length][0];
+    // setTimeout(() => {
+        // elms.img2.src = texts[(firstIndex + 1) % texts.length][0];
+    // }, 1500);
 }
 
 function doCooldown() {
@@ -140,7 +121,7 @@ function animate() {
 
     if (cooldown <= 0) {
         if (shouldIncrementIndex) {
-            textIndex++;
+            firstIndex++;
         }
 
         doMorph();
@@ -213,43 +194,44 @@ animate();
 //
 //end text writing
 
-
+var prizeResultInterval;
 function setVotedNumber() {
 
-    if (systemJson.voted_numbers && systemJson.voted_numbers.length > 0) {
+    if (systemJson.votedNumbers && systemJson.votedNumbers.length > 0) {
         let c = 0;
-        systemJson.voted_numbers.forEach(q => {
+        systemJson.votedNumbers.forEach(q => {
 
             $s(".winner_statistics .num" + c + " .winner_num").innerText = q.n;
-            $s(".winner_statistics .num" + c + " .winner_qty").innerText = "X " + q.w;
+            // $s(".winner_statistics .num" + c + " .winner_qty").innerText = "X " + q.w;
+            $s(".winner_statistics .num" + c + " .winner_qty").innerText =  q.w;
             $s(".most_voted_number.num" + c).innerText = q.n;
             c++;
         });
 
-        if (bigJson.previous_numbers && bigJson.previous_numbers.length) {
+        if (bigJson.previousNumbers && bigJson.previousNumbers.length) {
             c = 0;
-            bigJson.previous_numbers.forEach(q => {
+            bigJson.previousNumbers.forEach(q => {
                 $s("#my_selected_number_div").insertAdjacentHTML('beforeend', '<p class="my_selected_number num' + c + '"  data-num="' + c + '">' + q + '</p>');
                 c++;
             });
         }
 
-        if (bigJson.previous_numbers && bigJson.previous_numbers.length > 0) {
+        if (bigJson.previousNumbers && bigJson.previousNumbers.length > 0) {
 
             showElems("#with_choosed_number_statistics");
 
             let d = 0, z = 0, winnerNum, myNum, mostVotedNumber = $s(".most_voted_number", 0, 1), mySelectedNumber = $s(".my_selected_number", 0, 1);
-            let wNum, mNum, rNum, prizeResultInterval, prizeLevel = ["1st", "2nd", "3rd", "4th", "5th", "6th", "7th"];
+            let wNum, mNum, rNum, prizeLevel = ["1st", "2nd", "3rd", "4th", "5th", "6th", "7th"];
 
             setWinnerAndTicketData(d, z);
-            z = bigJson.previous_numbers.length > 1 ? z + 1 : 0;
+            z = bigJson.previousNumbers.length > 1 ? z + 1 : 0;
 
             prizeResultInterval = setInterval(() => {
                 setWinnerAndTicketData(d, z);
                 z++;
-                if (z >= bigJson.previous_numbers.length) {
+                if (z >= bigJson.previousNumbers.length) {
                     d++;
-                    if (d >= systemJson.voted_numbers.length) {
+                    if (d >= systemJson.votedNumbers.length) {
                         d = 0;
                     }
                     z = 0;
@@ -257,18 +239,17 @@ function setVotedNumber() {
             }, 3000);
 
             function setWinnerAndTicketData(d, z, isClicked) {
-//        console.log("setWinnerAndTicketData, d:", d, " z:", z);
-                winnerNum = systemJson.voted_numbers[d].n + "";
-                myNum = bigJson.previous_numbers[z] + "";
+                winnerNum = systemJson.votedNumbers[d].n ; 
+                myNum = bigJson.previousNumbers[z] + "";
 
                 for (let y = 0; y < 8; y++) {
 
                     wNum = winnerNum.charAt(y) || "", mNum = myNum.charAt(y);
 
-                    $s(".winresult_grid .wnum" + y).innerText = wNum;
+                    $s(".winresult_grid .wnum" + y).innerText = wNum==="x"?"":wNum;
                     $s(".winresult_grid .mnum" + y).innerText = mNum;
 
-                    if (wNum === "") {
+                    if (wNum === "x") {
                         rNum = "";
                     } else if (wNum === mNum) {
                         rNum = "&#x2705;";
@@ -288,8 +269,8 @@ function setVotedNumber() {
                 $s(".most_voted_number.num" + d).classList.add("choosed");
                 removeAllClassesFromElems(mySelectedNumber, "choosed");
                 $s(".my_selected_number.num" + z).classList.add("choosed");
-                $s(".winresult_grid .total_winner").innerText = systemJson.voted_numbers[d].w.toLocaleString();
-                $s(".winresult_grid .prize span").innerText = "$ " + systemJson.voted_numbers[d].a.toLocaleString();
+                $s(".winresult_grid .total_winner").innerText = systemJson.votedNumbers[d].w.toLocaleString();
+                $s(".winresult_grid .prize span").innerText = "$ " + systemJson.votedNumbers[d].a.toLocaleString();
                 $s(".winresult_grid .prize img").src = "cdn/img/" + (d + 1) + "rd_medal.svg";
                 $s(".winresult_grid .detail").innerText = prizeLevel[d] + " winners";
 
@@ -323,20 +304,56 @@ setVotedNumber();
 
 
 function setCurrentNumber() {
-    if (bigJson.current_number && bigJson.current_number.length > 0) {
-        bigJson.current_number.forEach(q => {
+    if (bigJson.currentNumbers && bigJson.currentNumbers.length > 0) {
+        showElems("#current_number_div");
+        $s("#my_buyed_tickets").innerHTML = "";
+        bigJson.currentNumbers.forEach(q => {
             $s("#my_buyed_tickets").insertAdjacentHTML('beforeend', '<div class="' + (q.p == 1 ? 'new_ticket' : 'new_ticket half_ticket') + '"><span>' + q.n + '</span></div>');
         });
     }
-    if (bigJson.current_number.length >= MAX_CURRENT_TICKET) {
-        hideElems($s("#current_my_ticket"));
-    }
+    showHideAddNumber();
 }
 setCurrentNumber();
 
-$s("#add_new_number_bt").onclick = () => {
-    let numVal = getFlowNumberValue("#new_ticket");
 
-    //*** send to server and add to dom
-    $s("#my_buyed_tickets").insertAdjacentHTML('beforeend', '<div class="new_ticket not_paid_ticket"><span>' + numVal + '</span></div>');
+function showHideAddNumber(fromBt) {
+    if (bigJson.currentNumbers.length + newChanceNumberArr.size >= STATIC_VARIABLE.MAX_CURRENT_TICKET) {
+        hideElems($s("#current_my_ticket"));
+        if (fromBt) {
+            toast.success("Congratulations! You have filled in 5 lucky numbers.");
+        }
+    }
+}
+$s("#add_new_number_bt").onclick = () => {
+    let numVal = getFlowNumberValue("#new_ticket"), flag = false;
+    bigJson.currentNumbers.forEach(a => {
+        if (a.n === numVal) {
+            flag = true;
+        }
+    });
+    if (!flag&&!newChanceNumberArr.has(numVal)) {
+        showElems("#current_number_div");
+        newChanceNumberArr.add(numVal);
+        showHideAddNumber(true);
+        showElems("#send_numbers");
+        $s("#my_buyed_tickets").insertAdjacentHTML('beforeend', '<div class="new_ticket not_paid_ticket"><span>' + numVal + '</span></div>');
+    } else {
+        toast.warning("You currently have this number!");
+    }
 };
+$s("#send_numbers").onclick = () => {
+    hideElems("#send_numbers");
+    sendPostData("/addnumber", { numbers: JSON.stringify(Array.from(newChanceNumberArr)) });
+}
+function addNewNumbersToBigJson(jsonData) {
+    bigJson.currentNumbers = jsonData.currentNumbers;
+    // newChanceNumberArr = [];
+    newChanceNumberArr.clear();
+    toast.success("Your numbers is saved");
+    $s("#my_buyed_tickets").innerHTML = "";
+    setCurrentNumber();
+}
+function destroyAction() {
+    clearTimeout(randomFlowNumberTimeout);
+    clearInterval(prizeResultInterval);
+}

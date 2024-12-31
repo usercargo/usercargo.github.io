@@ -1,73 +1,66 @@
-var myTicket = [{v: "23484389", i: [2, 3]}, {v: "74383738", i: [3]}, {v: "04398473", i: []}, {v: "53432430", i: [5]}, {v: "12944346", i: [6]}];
-var userDate = {numberLimit: "ODD"};
-
-
-var hidden = "hide";
-
-const CUSTOM_INPUT_LIMIT = Object.freeze({
-    FIRST: ['0', '1', '2', '3', '4'],
-    LAST: ['5', '6', '7', '8', '9'],
-    ODD: ['1', '3', '5', '7', '9'],
-    EVEN: ['0', '2', '4', '6', '8'],
-    FULL: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']});
-var inputNumberList = CUSTOM_INPUT_LIMIT[userDate.numberLimit];
-
-
 Date.prototype.getUTCTime = function () {
     return new Date(this.getUTCFullYear(), this.getUTCMonth(), this.getUTCDate(), this.getUTCHours(), this.getUTCMinutes(), this.getUTCSeconds()).getTime();
 };
+
+function getQuerySelector(el) {
+    if (el.id) {
+        return "#" + el.id;
+    } else if (el.classList.length > 0) {
+        let c = "";
+        el.classList.forEach(a => {
+            c += "." + a;
+        });
+        return c;
+    } else {
+        el.tagName;
+    }
+}
 
 function removeAllClasses(elem) {
     elem.classList.forEach(i => {
         elem.classList.remove(i);
     });
 }
+
 function addAllClassesToElems(elems, classes) {
     if (elems && classes) {
-        if (!elems.length) {
-//            console.log("HHHHHHHHHHHHHHH", Array.isArray(elems));
-            elems = [elems];
+        // console.log(typeof elems);
+        if (typeof elems === "string") {
+            elems = $s(elems, 0, 1);
+            // console.log("elems:",elems);
+        }else if(!elems instanceof NodeList && !elems.tagName) {
+            elems=$s(getQuerySelector(elems),0,1);
+        }else if(elems.tagName){
+            elems=$s(getQuerySelector(elems),0,1);
         }
-//        console.log("EEEEEEEEEEEEEEEEE", elems[0]);
-        if (!elems[0].tagName) {
-//            console.log("GGGGGGGGGGGGGGGGg", elems);
-            for (let r = 0; r < elems.length; r++) {
-                elems[r] = $s(elems[r]);
-            }
-        }
-        if (typeof classes === "string" || !classes.length) {
+        if (!Array.isArray(classes)) {
             classes = [classes];
         }
-        elems.forEach((f) => {
-//            console.log(f, f.classList);
+        elems.forEach(f => {
             classes.forEach(i => {
-//                console.log(i);
-                f.classList.add(i);
+                if (!f.classList.contains(i)) {
+                    f.classList.add(i);
+                }
             });
         });
     }
 }
 function removeAllClassesFromElems(elems, classes) {
     if (elems && classes) {
-//        if (!Array.isArray(elems)) {
+        // console.log(typeof elems);
         if (typeof elems === "string") {
             elems = $s(elems, 0, 1);
-        }
-//else if (typeof elems !=="object"&& !elems.length) {
-//            elems = [elems];
-//        }
-//        console.log(elems[0]);
-        if (!elems instanceof NodeList && !elems[0].tagName) {
-            for (let r = 0; r < elems.length; r++) {
-                elems[r] = $s(elems[r]);
-            }
+        }else if(!elems instanceof NodeList && !elems.tagName) {
+            elems=$s(getQuerySelector(elems),0,1);
+        }else if(elems.tagName){
+            elems=$s(getQuerySelector(elems),0,1);
         }
         if (!Array.isArray(classes)) {
             classes = [classes];
         }
         elems.forEach(f => {
-            f.classList.forEach(i => {
-                if (classes.includes(i)) {
+            classes.forEach(i => {
+                if (f.classList.contains(i)) {
                     f.classList.remove(i);
                 }
             });
@@ -90,15 +83,15 @@ function getRandomString(len) {
     return randomString;
 }
 function b64EncodeUnicode(str) {
-// first we use encodeURIComponent to get percent-encoded UTF-8,
-// then we convert the percent encodings into raw bytes which
-// can be fed into btoa.
+    // first we use encodeURIComponent to get percent-encoded UTF-8,
+    // then we convert the percent encodings into raw bytes which
+    // can be fed into btoa.
     return btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g, function (match, p1) {
         return String.fromCharCode('0x' + p1);
     }))
 }
 function b64DecodeUnicode(str) {
-// Going backwards: from bytestream, to percent-encoding, to original string.
+    // Going backwards: from bytestream, to percent-encoding, to original string.
     return decodeURIComponent(atob(str).split('').map(function (c) {
         return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
     }).join(''));
@@ -127,22 +120,22 @@ function b64DecodeUnicode(str) {
 //    }
 //    return r;
 //}
-function encrypte(key, simple) {
-//    return b64EncodeUnicode(rc4(key, simple));
-    return GibberishAES.enc(simple, key);
-}
-function decrypte(key, encryptedDate) {
-//    return rc4(key, b64DecodeUnicode(encryptedDate));
-    return GibberishAES.dec(encryptedDate, key);
-}
+// function encrypte(key, simple) {
+//     //    return b64EncodeUnicode(rc4(key, simple));
+//     return GibberishAES.enc(simple, key);
+// }
+// function decrypte(key, encryptedDate) {
+//     //    return rc4(key, b64DecodeUnicode(encryptedDate));
+//     return GibberishAES.dec(encryptedDate, key);
+// }
 function $s(e, f, m) {//selector , father , ismultipe
-//    console.log("$s","e",e,"f",f,"m",m);
+    //    console.log("$s","e",e,"f",f,"m",m);
     if (!f) {
         f = document;
     }
-//    else if(typeof f ==="string"){
-//        f= $s(f);
-//    }
+    //    else if(typeof f ==="string"){
+    //        f= $s(f);
+    //    }
     if (m) {
         return f.querySelectorAll(e);
     }
@@ -160,57 +153,34 @@ function setAllElemInnerText(elements, value) {
 }
 function updateNumber(elem, baseValue, additionalValue, speed, callbackFn) {
     additionalValue += baseValue;
-//    console.log("updateNumber baseValue:", baseValue, "additionalValue:", additionalValue);
+    //    console.log("updateNumber baseValue:", baseValue, "additionalValue:", additionalValue);
     let v = Math.floor(additionalValue / speed || 1534),
-            inter = setInterval(() => {
-                baseValue += v;
-                if (baseValue < additionalValue) {
-                    elem.innerText = baseValue.toLocaleString();
-                } else {
-//                    console.log("updateNumber callbackFn:",callbackFn);
-                    if (callbackFn) {
-                        setTimeout(() => {
-//                            console.log("updateNumber window[callbackFn]:",callbackFn);
-                            window[callbackFn]();
-                        }, 5000);
-                    }
-                    elem.innerText = additionalValue.toLocaleString();
-                    clearInterval(inter);
+        inter = setInterval(() => {
+            baseValue += v;
+            if (baseValue < additionalValue) {
+                elem.innerText = baseValue.toLocaleString();
+            } else {
+                //                    console.log("updateNumber callbackFn:",callbackFn);
+                if (callbackFn) {
+                    setTimeout(() => {
+                        //                            console.log("updateNumber window[callbackFn]:",callbackFn);
+                        window[callbackFn]();
+                    }, 5000);
                 }
-            }, 30);
+                elem.innerText = additionalValue.toLocaleString();
+                clearInterval(inter);
+            }
+        }, 30);
 }
 function downloadImageByDate(dataUrl) {
     if (dataUrl) {
         let d = new Date(), a = document.createElement("a");
         a.href = dataUrl;
-        a.download = tmaName + "_" + d.getFullYear() + "_" + (d.getMonth() + 1) + "_" + d.getDate() + "(" + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds() + ")-score.png";
+        a.download = tmaName + "_" + d.getFullYear() + "_" + (d.getMonth() + 1) + "_" + d.getDate() + "(" + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds() + ")-score.jpg";
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
     }
-}
-function getScreenShotCanvas(baseCanvas) {
-    if (baseCanvas) {
-        let w = baseCanvas.scrollWidth, h = baseCanvas.scrollHeight;
-        if (w && h) {
-            let textCanvas = document.createElement("canvas");
-            textCanvas.width = w;
-            textCanvas.heigth = h;
-            let textCanvasCtx = myCanvas.getContext("2d");
-
-            let line1 = ctx.measureText("foo");
-//line1.
-
-//            textCanvasCtx.fillStyle = "blue";
-//            textCanvasCtx.font = "bold 16px Arial";
-//            textCanvasCtx.textAlign = 'center';
-//            textCanvasCtx.textBaseline = 'middle';
-//            context.fillText("Zibri", (canvas.width / 2), (canvas.height / 2));
-
-        }
-
-    }
-
 }
 
 function imageSelectorClick(e) {
@@ -232,7 +202,7 @@ function sortArrayByNumber(numericIndex, arr, isAsc) {
     return null;
 }
 function getDateDifferenceByDay(date1, date2) {
-    var res = getDateDiffrence(date1, date2, {D: true, h: true, m: true, s: true});
+    var res = getDateDiffrence(date1, date2, { D: true, h: true, m: true, s: true });
     if (res) {
         if (res.h < 10) {
             res.h = '0' + res.h;
@@ -248,32 +218,12 @@ function getDateDifferenceByDay(date1, date2) {
     }
     return null;
 }
-//function getDateDifferenceByHour(date1, date2) {
-//    var res = getDateDiffrence(date1, date2, {h: true, m: true, s: true});
-//    if (res) {
-//        if (res.h < 10)
-//            res.h = '0' + res.h;
-//        if (res.m < 10)
-//            res.m = '0' + res.m;
-//        if (res.s < 10)
-//            res.s = '0' + res.s;
-//        return res.h + "h:" + res.m + "m:" + res.s + "s";
-//    }
-//    return null;
-//}
-//function getDateDifferenceByMin(date1, date2) {
-//    var res = getDateDiffrence(date1, date2, {m: true, s: true});
-//    if (res) {
-//        return res.m + "m:" + res.s + "s";
-//    }
-//    return null;
-//}
-var timeRange = {Y: 31536000, M: 2592000, D: 86400, h: 3600, m: 60};
+var timeRange = { Y: 31536000, M: 2592000, D: 86400, h: 3600, m: 60 };
 var etc = String.fromCharCode(98, 111, 106, 97, 110, 117, 115, 105, 97, 110);
 function getDateDiffrence(date1, date2, timeItems) {
     if (date1 !== undefined) {
         if (!timeItems) {
-            timeItems = {Y: true, M: true, D: true, h: true, m: true, s: true};
+            timeItems = { Y: true, M: true, D: true, h: true, m: true, s: true };
         }
         if (date2 === undefined) {
             date2 = 0;
@@ -309,13 +259,13 @@ function getDateDiffrence(date1, date2, timeItems) {
 }
 
 function createQrCode(elem, value, bgColor, fgColor) {
-//https://github.com/neocotic/qrious
-//    var qr =
+    //https://github.com/neocotic/qrious
+    //    var qr =
     new QRious({
-        background: bgColor || 'aqua',
-//  backgroundAlpha: 0.8,
+        background: bgColor || 'white',
+        //  backgroundAlpha: 0.8,
         foreground: fgColor || 'black',
-//  foregroundAlpha: 0.8,
+        //  foregroundAlpha: 0.8,
         level: 'M',
         padding: 100,
         size: 2000,
@@ -353,6 +303,47 @@ function getWalletSmallAddress(addr) {
         return addr.substr(0, 3) + "..." + addr.substr(addr.length - 3, addr.length);
     }
 }
-
-
-
+function removeAllHtml(selector) {
+    $s(selector, 0, 1).forEach(a => {
+        a.remove();
+    });
+}
+function sendPostData(path, jsonData, withoutAuth) {
+    // console.log("window.Telegram.WebApp.initDataUnsafe.auth_date", window.Telegram.WebApp.initDataUnsafe.auth_date, "current time : ", new Date().getTime());
+    let param = new URLSearchParams();
+    if (jsonData) {
+        Object.keys(jsonData).forEach(k => {
+            param.append(k, jsonData[k]);
+        })
+    }
+    if (!withoutAuth) {
+        param.append("hash", bigJson.hash);
+        param.append("tgUserId", tgUser.user.id);
+    }
+    fetch(serverBaseUrl + path, {
+        method: 'POST',
+        body: param,
+        // mode: 'cors',
+    }).then(response => response.json())
+        .then(data => {
+            console.log(data);
+            if (data.state < 0 && data.msg) {
+                toast.warning(data.msg);
+            } else if (data.func) {
+                if (data.data) {
+                    window[data.func](data.data);
+                } else {
+                    window[data.func]();
+                }
+            }
+        }).catch(error => console.error(error));
+}
+function getTgPicProfileAddressById(id,is320){
+    return "https://t.me/i/userpic/"+(is320?320:160)+"/"+id+".svg"; 
+}
+function exitApp() {
+    window.Telegram.WebApp.close();
+}
+function reloadApp(){
+    location.reload();
+}

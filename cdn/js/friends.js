@@ -1,26 +1,42 @@
+var inviteTextSimple = `
+🎮 Join Me in Happy to being happy! 😍👍
+    
+Happy is for laughing, playing together, try your $1,000,000💵 chance and getting luxury expriences.
+    
+I've been enjoying Happy and thought you might like it too. Join me and let's earn extra rewards together. 
+       
+You will get:
+    
+ 🎯50,000,000 point just for open this app. 
+    
+Let's Go 😜
+`,
+inviteTextEncoded = encodeURIComponent(inviteTextSimple),inviteLinkEncoded = encodeURIComponent(inviteLink);
 
 $s("#invite_telegram").onclick = () => {
-    window.open("https://t.me/share?text=Hey friend I invite you to get 25,000,000 in XOXcoin and win big prizes&url=" + inviteLink, "_blank");
+    window.Telegram.WebApp.openTelegramLink('https://t.me/share/url?url='+inviteLinkEncoded+'&text='+inviteTextEncoded);
 };
 
 $s("#invite_copy").onclick = () => {
-    navigator.clipboard.writeText("https://t.me/share?text=Hey friend I invite you to get 25,000,000 in XOXcoin and win big prizes&url=" + inviteLink, "_blank");
-    toast.success("link is copied and ready to send it to your friends");
+    navigator.clipboard.writeText(inviteLink+inviteTextSimple+inviteLink);
+    toast.success("the link is copied and ready to be sent to your friends");
 };
 
-createQrCode($s("#invite_qr"), inviteLink, "white");
+createQrCode($s("#invite_qr_for_friends"), inviteLink, "white");
 
-    
-    
-    let recentFriendDiv = $s("#recent_friend");
-if (bigJson.recent_friends.length > 0) {
+var recentFriendDiv = $s("#recent_friend");
+if (bigJson.recentFriends.length > 0) {
     let time = new Date().getUTCTime();
-    bigJson.recent_friends.forEach(a => {
-        recentFriendDiv.insertAdjacentHTML('beforeend', '<div class="friend_person"><img src="cdn/img/wheel.png"><div><span>' + a.name + '</span><div><small>' + getDateDifferenceByDay(time, a.time) + ' ago</small></div></div></div>');
+    bigJson.recentFriends.forEach(a => {
+        recentFriendDiv.insertAdjacentHTML('beforeend', '<div class="friend_person"><img src="'+getTgPicProfileAddressById(a.tgPicId,1)+'"><div><span>' + a.name + '</span><div><small>' + getDateDifferenceByDay(time, a.time) + ' ago</small></div></div></div>');
     });
 } else {
-    recentFriendDiv.insertAdjacentHTML('beforeend', '<h3 id="no_invite_yet">Oh! you have not any friend yet, invite someone & get <img src="cdn/img/coin.svg"> ' + inviteThankyouGiftValue + ' as thank you gift & give <img src="cdn/img/coin.svg"> ' + inviteGiftValue + ' to your friend, nice deal :)</h3>');
+    recentFriendDiv.insertAdjacentHTML('beforeend', '<h3 id="no_invite_yet">Oh! You don\'t have any friends yet. Invite someone and get ' + inviteThankyouGiftValue + ' as a gift, and give ' + inviteGiftValue + ' to your friend. Nice deal! :)</h3>');
 }
 
-$s("#my_invite_gift").innerText=bigJson.my_invite_gift.toLocaleString();
-$s("#friend_invite_gift").innerText=bigJson.friend_invite_gift.toLocaleString();
+$s("#my_invite_gift").innerText = bigJson.myInviteGift.toLocaleString();
+$s("#friend_invite_gift").innerText = bigJson.myInviteGift.toLocaleString();
+
+function destroyAction() {
+
+}

@@ -1,9 +1,9 @@
 /**
  * Adjustment when drawing arcs to ensure 0° is north (due to canvas drawing arcs from 90°).
  */
-const arcAdjust = -90;
+var arcAdjust = -90;
 
-const baseCanvasSize = 500; // 500 seemed to be a good value for this.
+var baseCanvasSize = 500; // 500 seemed to be a good value for this.
 
 /**
  * The period in milliseconds that we record drag events.
@@ -11,12 +11,12 @@ const baseCanvasSize = 500; // 500 seemed to be a good value for this.
  * For example, if the wheel was dragged 20 degrees over the last 250ms,
  * then it should continue rotating at a speed of 20 degrees every 250ms after the drag ends.
  */
-const dragCapturePeriod = 250;
+var dragCapturePeriod = 250;
 
 /**
  * Text alignment enum.
  */
-const AlignText = Object.freeze({
+var AlignText = Object.freeze({
   left: 'left',
   right: 'right',
   center: 'center',
@@ -25,7 +25,7 @@ const AlignText = Object.freeze({
 /**
  * Wheel property defaults.
  */
-const Defaults = Object.freeze({
+var Defaults = Object.freeze({
   wheel: {
     borderColor: '#000',
     borderWidth: 1,
@@ -72,7 +72,7 @@ const Defaults = Object.freeze({
   },
 });
 
-const Debugging = Object.freeze({
+var Debugging = Object.freeze({
   pointerLineColor: '#ff00ff',
   labelBoundingBoxColor: '#ff00ff',
   labelRadiusColor: '#00ff00',

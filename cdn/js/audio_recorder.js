@@ -1,5 +1,5 @@
-//webkitURL is deprecated but nevertheless
-URL = window.URL || window.webkitURL;
+
+URL = window.URL;
 
 var gumStream; 						//stream from getUserMedia()
 var recorder; 						//MediaRecorder object
@@ -17,43 +17,46 @@ var audioBitRate = 51000;
 //pauseButton.addEventListener("click", pauseRecording);
 
 // true on chrome, false on firefox
-console.log("audio/webm:" + MediaRecorder.isTypeSupported('audio/webm;codecs=opus'));
+// console.log("audio/webm:" + MediaRecorder.isTypeSupported('audio/webm;codecs=opus'));
 // false on chrome, true on firefox
-console.log("audio/ogg:" + MediaRecorder.isTypeSupported('audio/ogg;codecs=opus'));
+// console.log("audio/ogg:" + MediaRecorder.isTypeSupported('audio/ogg;codecs=opus'));
 
-if (MediaRecorder.isTypeSupported('audio/webm;codecs=opus')) {
-    extension = "webm";
-} else {
-    extension = "ogg";
-}
+// if (MediaRecorder.isTypeSupported('audio/webm;codecs=opus')) {
+extension = "webm";
+// } else {
+// extension = "ogg";
+// }
 
 
-function startRecording(callback) {
-//	console.log("recordButton clicked");
+function startRecording(callback, permissionCallBack) {
+    //	console.log("recordButton clicked");
 
     /*
      Simple constraints object, for more advanced audio features see
      https://addpipe.com/blog/audio-constraints-getusermedia/
      */
 
-    var constraints = {audio: true};
+    var constraints = { audio: true };
 
     /*
      Disable the record button until we get a success or fail from getUserMedia() 
      */
 
-//	recordButton.disabled = true;
-//	stopButton.disabled = false;
-//	pauseButton.disabled = false;
+    //	recordButton.disabled = true;
+    //	stopButton.disabled = false;
+    //	pauseButton.disabled = false;
 
     /*
      We're using the standard promise based getUserMedia() 
      https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia
      */
+    chunks = [];
 
     navigator.mediaDevices.getUserMedia(constraints).then(function (stream) {
-        console.log("getUserMedia() success, stream created, initializing MediaRecorder");
-
+        // console.log("getUserMedia() success, stream created, initializing MediaRecorder");
+        if (permissionCallBack) {
+            window[permissionCallBack]();
+        }
         /*  assign to gumStream for later use  */
         gumStream = stream;
 
@@ -65,7 +68,7 @@ function startRecording(callback) {
         }
 
         //update the format 
-//        document.getElementById("formats").innerHTML = 'Sample rate: 48kHz, MIME: audio/' + extension + ';codecs=opus';
+        //        document.getElementById("formats").innerHTML = 'Sample rate: 48kHz, MIME: audio/' + extension + ';codecs=opus';
 
         /* 
          Create the MediaRecorder object
@@ -74,18 +77,18 @@ function startRecording(callback) {
 
         //when data becomes available add it to our attay of audio data
         recorder.ondataavailable = function (e) {
-//	    	console.log("recorder.ondataavailable:" + e.data);
+            //	    	console.log("recorder.ondataavailable:" + e.data);
 
-//	    	console.log ("recorder.audioBitsPerSecond:"+recorder.audioBitsPerSecond)
-//	    	console.log ("recorder.videoBitsPerSecond:"+recorder.videoBitsPerSecond)
-//	    	console.log ("recorder.bitsPerSecond:"+recorder.bitsPerSecond)
+            //	    	console.log ("recorder.audioBitsPerSecond:"+recorder.audioBitsPerSecond)
+            //	    	console.log ("recorder.videoBitsPerSecond:"+recorder.videoBitsPerSecond)
+            //	    	console.log ("recorder.bitsPerSecond:"+recorder.bitsPerSecond)
             // add stream data to chunks
             chunks.push(e.data);
             // if recorder is 'inactive' then recording has finished
             if (recorder.state == 'inactive') {
                 // convert stream data chunks to a 'webm' audio format as a blob
-                const blob = new Blob(chunks, {type: 'audio/' + extension, bitsPerSecond: audioBitRate});
-//	          createDownloadLink(blob);
+                const blob = new Blob(chunks, { type: 'audio/' + extension, bitsPerSecond: audioBitRate });
+                //	          createDownloadLink(blob);
                 if (callback) {
                     window[callback](blob);
                 }
@@ -103,9 +106,9 @@ function startRecording(callback) {
         //recorder.start();
     }).catch(function (err) {
         //enable the record button if getUserMedia() fails
-//    	recordButton.disabled = false;
-//    	stopButton.disabled = true;
-//    	pauseButton.disabled = true
+        //    	recordButton.disabled = false;
+        //    	stopButton.disabled = true;
+        //    	pauseButton.disabled = true
     });
 }
 
@@ -124,21 +127,23 @@ function startRecording(callback) {
 //}
 
 function stopRecording() {
-    console.log("stopButton clicked");
+    // console.log("stopButton clicked");
 
     //disable the stop button, enable the record too allow for new recordings
-//	stopButton.disabled = true;
-//	recordButton.disabled = false;
-//	pauseButton.disabled = true;
+    //	stopButton.disabled = true;
+    //	recordButton.disabled = false;
+    //	pauseButton.disabled = true;
 
     //reset button just in case the recording is stopped while paused
-//	pauseButton.innerHTML="Pause";
+    //	pauseButton.innerHTML="Pause";
 
     //tell the recorder to stop the recording
+    if(recorder){
     recorder.stop();
-
-    //stop microphone access
     gumStream.getAudioTracks()[0].stop();
+    }
+    //stop microphone access
+    
 }
 
 //function createDownloadLink(blob) {
