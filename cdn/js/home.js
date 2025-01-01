@@ -42,7 +42,7 @@ function setSelectedHour(hour) {
 
 
 //wheel
-var wheel, wheelImages, wheelSelectedItem, wrapper = $s(".wrapper"), bottom = $s(".bottom"),
+var wheel, wheelImages, wheelSelectedItem,
     screenShotTaken = false, spinInterval, selectWheelInterval, wheelTimeout1, wheelTimeout2, wheelTimeout3,
     selectWheelLock = 5, wheelGuard = $s('#wheel_guard>div');
 
