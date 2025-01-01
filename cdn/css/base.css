@@ -277,6 +277,7 @@ del {
 .screen_text_center {
     text-align: center !important;
     font-weight: 900;
+    margin: 0 10px;
 }
 
 .screen_center_elem {
