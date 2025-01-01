@@ -18,7 +18,7 @@ var tinyOp = {};
 
 var tonConnectUI;
 
-const serverBaseUrl = isInTest?"https://123.abc:7070":"https://static.notrex.ir:2053";
+const serverBaseUrl = isInTest?"https://123.abc:2053":"https://static.notrex.ir:2053";
 const staticServerBaseUrl = isInTest?"https://123.abc:444/static/":"https://static.notrex.ir:2096"
 
 var bigJson = {

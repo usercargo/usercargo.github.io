@@ -1,7 +1,7 @@
 
 var laughCounter = 1, laughInterval,  laughImg = $s("#laugh_bt img"),
     laughAudio = new Audio();
-var laughBetweenInterval, afterLaughingFlag = true;
+var afterLaughingFlag = true;
 
 function startRecordClicked() {
     if (!laughingLockFlag) {

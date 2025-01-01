@@ -70,12 +70,12 @@ function startGame(jsonData) {
         $s("#middle_content").style.cssText = "background:url(../cdn/img/bg1_blured.jpg) no-repeat;background-size:cover;color:#fff;";
         console.log("log 3");
 
-        setTimeout(() => {
-            console.log("log 4");
-            showElems(".bottom");
-            showElems(".header");
-            $s('.bottom div[data-page="home"]').click();
-        }, isInTest?1000:7000);
+        // setTimeout(() => {
+        //     console.log("log 4");
+        //     showElems(".bottom");
+        //     showElems(".header");
+        //     $s('.bottom div[data-page="home"]').click();
+        // }, isInTest?1000:7000);
     },isInTest?1000:11000);
 }
 

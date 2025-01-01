@@ -89,7 +89,7 @@ function setErrorLocation(msg) {
     }
 }
 
-var laughBt = $s("#laugh_bt"), laughingRunLock = false;
+var laughBt = $s("#laugh_bt"), laughingRunLock = false,laughBetweenInterval;
 laughBt.onclick = () => {
     if (laughingLockFlag) {
         let t = getDateDiffrence(lastLaughingTimeValue, new Date() * 1, { m: true, s: true });
