@@ -31,16 +31,16 @@ var bigJson = {
     funVoiceNumber: 0,//11
     funVoiceLikedStatistics: [30, 48, 432],//[liked,disliked,heard]
     lastFunVoiceNumber: 1,
-    walletNonBounceableAddr: "0QAAnBlgEneNamuKLyWPY5KD3rJBhwoFxafH3kPIyWRZMouf",
+    walletNonBounceableAddr: null,
     areaId: "-994916816", //null,  null when not setted
     baseWheelMaxValue: 50, baseWheelMinValue: 1, wheelCoefficient: 100000, wheelOptionQuantity: 16,
     myInviteGift: 50000000,
     //  friend_invite_gift: 50000000,
     recentFriends: [// [] for no friends
-        { name: "mozhgan elmifard", time: 1730506708925 },
-        { name: "mehdi rahmati", time: 1730226708925 },
+        { name: "user1 f1", time: 1730506708925 },
+        { name: "user2 f2", time: 1730226708925 },
         { name: "KIOKIO mta", time: 1730126708925 },
-        //{name: "ALioo9", time: 1730026708925}
+        //{name: "ALoo9", time: 1730026708925}
     ],
     previousNumbers: [73821484, 64352455, 45256234],
     currentNumbers: [
