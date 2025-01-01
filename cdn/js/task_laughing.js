@@ -118,6 +118,8 @@ function getMoodResultOfLaughing(predications) {
         lastLaughingTimeValue = new Date() * 1;
         localStorage.setItem(LS_VAR.LAST_LAUGHING_TIME, lastLaughingTimeValue);
         setLaughTimer();
+        
+        laughingRunLock=false;
 
         if (prize > 0) {
             sendPostData("/laughing", { point: prize });

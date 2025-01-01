@@ -91,7 +91,7 @@ function setErrorLocation(msg) {
 
 var laughBt = $s("#laugh_bt"), laughingRunLock = false,laughBetweenInterval;
 laughBt.onclick = () => {
-    if (laughingLockFlag) {
+    if (!laughingRunLock&&laughingLockFlag) {
         let t = getDateDiffrence(lastLaughingTimeValue, new Date() * 1, { m: true, s: true });
         toast.info("please wait " + (59 - t.m) + "m: " + (60 - t.s) + "s for next time");
     } else {
@@ -304,6 +304,7 @@ function setLaughTimer() {
     if (lastLaughingTimeValue + ON_HOUR_TIME < d) {
         laughText.innerText = "start";
         laughingLockFlag = false;
+        laughingRunLock = false;
     } else {
         laughingLockFlag = true;
         let diff;

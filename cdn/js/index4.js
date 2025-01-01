@@ -1,7 +1,7 @@
 
 var bottomMenu = $s(".bottom div", 0, 1), selectedBottomMenu = "big_img",wrapper = $s(".wrapper"), bottom = $s(".bottom");
 
-wrapper.style.overflowY="visible";
+wrapper.style.overflowY="hidden";
 
 bottomMenu.forEach(i => {
     i.onclick = (a) => {
