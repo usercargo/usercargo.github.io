@@ -87,10 +87,13 @@ if (bigJson.areaId) {
         stopRecording();
         clearInterval(funVoiceRecordInterval);
     }
-    $s("#voice_play_bt").ontouchstart = () => {
-        funRecordAudio.play();
-    };
-    $s("#voice_play_bt").onmousedown = () => {
+    // $s("#voice_play_bt").ontouchstart = () => {
+    //     funRecordAudio.play();
+    // };
+    // $s("#voice_play_bt").onmousedown = () => {
+    //     funRecordAudio.play();
+    // };
+    $s("#voice_play_bt").onclick = () => {
         funRecordAudio.play();
     };
     $s("#voice_remove_bt").onclick = () => {
@@ -131,10 +134,9 @@ if (bigJson.areaId) {
     }
 
     
-    funRecordVoiceBt.ontouchstart = startFunRecordClicked;
-    funRecordVoiceBt.onmousedown = startFunRecordClicked;
-
-
+    // funRecordVoiceBt.ontouchstart = startFunRecordClicked;
+    // funRecordVoiceBt.onmousedown = startFunRecordClicked;
+    funRecordVoiceBt.onclick = startFunRecordClicked;
 
     function getNewFunVoiceList() {
         let newArr = new Set(), num;
