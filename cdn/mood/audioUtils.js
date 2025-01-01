@@ -1,4 +1,13 @@
-function preprocess (audioBuffer) {
+// function preprocess (audioBuffer) {
+//     if (audioBuffer instanceof AudioBuffer) {
+//         const mono = monomix(audioBuffer);
+//         // downmix to mono, and downsample to 16kHz sr for essentia tensorflow models
+//         return downsampleArray(mono, audioBuffer.sampleRate, 16000);
+//     } else {
+//         throw new TypeError("Input to audio preprocessing is not of type AudioBuffer");
+//     }
+// }
+window.preprocess=function (audioBuffer) {
     if (audioBuffer instanceof AudioBuffer) {
         const mono = monomix(audioBuffer);
         // downmix to mono, and downsample to 16kHz sr for essentia tensorflow models
@@ -51,7 +60,42 @@ function downsampleArray(audioIn, sampleRateIn, sampleRateOut) {
 }
 
 
-function shortenAudio (audioIn, keepRatio=0.5, trim=false) {
+// function shortenAudio (audioIn, keepRatio=0.5, trim=false) {
+//     /* 
+//         keepRatio applied after discarding start and end (if trim == true)
+//     */
+//     if (keepRatio < 0.15) {
+//         keepRatio = 0.15 // must keep at least 15% of the file
+//     } 
+//     console.log("TP1 ",keepRatio);
+// //    else if (keepRatio > 0.66) {
+// //        keepRatio = 0.66 // will keep at most 2/3 of the file
+// //    }
+
+//     if (trim) {
+//         const discardSamples = Math.floor(0.1 * audioIn.length); // discard 10% on beginning and end
+//         audioIn = audioIn.subarray(discardSamples, audioIn.length - discardSamples); // create new view of buffer without beginning and end
+//     }
+
+//     const ratioSampleLength = Math.ceil(audioIn.length * keepRatio);
+//     const patchSampleLength = 187 * 256; // cut into patchSize chunks so there's no weird jumps in audio
+//     const numPatchesToKeep = Math.ceil(ratioSampleLength / patchSampleLength);
+
+//     // space patchesToKeep evenly
+//     const skipSize = Math.floor( (audioIn.length - ratioSampleLength) / (numPatchesToKeep - 1) );
+
+//     let audioOut = [];
+//     let startIndex = 0;
+//     for (let i = 0; i < numPatchesToKeep; i++) {
+//         let endIndex = startIndex + patchSampleLength;
+//         let chunk = audioIn.slice(startIndex, endIndex);
+//         audioOut.push(...chunk);
+//         startIndex = endIndex + skipSize; // discard even space
+//     }
+
+//     return Float32Array.from(audioOut);
+// }
+window.shortenAudio=function (audioIn, keepRatio=0.5, trim=false) {
     /* 
         keepRatio applied after discarding start and end (if trim == true)
     */
@@ -87,4 +131,4 @@ function shortenAudio (audioIn, keepRatio=0.5, trim=false) {
     return Float32Array.from(audioOut);
 }
 
-export { preprocess, shortenAudio };
+// export { preprocess, shortenAudio };
