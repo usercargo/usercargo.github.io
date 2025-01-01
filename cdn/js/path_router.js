@@ -33,7 +33,8 @@ var pages = {
     laughing_lib:{
         css: [],
         html: [],
-        js: ["cdn/js/donut_chart.js","cdn/js/audio_recorder.js", "cdn/mood/essentia-wasm.web.js", "cdn/mood/essentia.js-core.js", ["cdn/mood/main.js", "module", "async", "defer"], "cdn/js/task_laughing.js"]
+        // js: ["cdn/js/donut_chart.js","cdn/js/audio_recorder.js", "cdn/mood/essentia-wasm.web.js", "cdn/mood/essentia.js-core.js", ["cdn/mood/main.js", "module", "async", "defer"], "cdn/js/task_laughing.js"]
+        js: ["cdn/js/donut_chart.js","cdn/js/audio_recorder.js", "cdn/mood/essentia-wasm.web.js", "cdn/mood/essentia.js-core.js", "cdn/mood/audioUtils.js", "cdn/mood/main.js", "cdn/js/task_laughing.js"]
     
     },
     ton_lib:{
